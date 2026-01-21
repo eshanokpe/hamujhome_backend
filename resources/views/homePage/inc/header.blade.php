@@ -6,7 +6,7 @@
         <div class="sidebar-widget widget_categories mb-50 mt-30">
             <div class="widget-header-2 position-relative">
                 <h5 class="mt-5 mb-15">Hot topics</h5>
-            </div>
+            </div> 
             <div class="widget_nav_menu">
                 <ul>
                     @foreach($allcategory as $cat)
@@ -90,7 +90,8 @@
         <div class="container">
             <div class="row pt-20 pb-20">
                 <div class="col-md-3 col-xs-6">
-                    <a href="{{route('home')}}"><img class="logo" src="{{asset($website->website_logo)}}" alt=""></a>
+                    <a href="{{route('home')}}"> 
+                        <img class="logo" src="{{asset($website->website_logo)}}" alt=""></a>
                 </div>
                 <div class="col-md-9 col-xs-6 text-right header-top-right ">
                     <ul class="list-inline nav-topbar d-none d-md-inline">

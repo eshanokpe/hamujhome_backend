@@ -147,14 +147,23 @@ class AdminPostsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy( $id){
+    public function destroy($id)
+    {
         $this->post = Post::find($id);
-        if($this->post->post_image){
-            if(file_exists($this->post->post_image)){
+    
+        // Check if post exists
+        if (!$this->post) {
+            return redirect()->back()->with('error', 'Post not found');
+        }
+        
+        if ($this->post->post_image) {
+            if (file_exists($this->post->post_image)) {
                 unlink($this->post->post_image);
             }
         }
+        
         $this->post->delete();
+        
         return redirect()->back()->with('success', 'Blog Deleted Successfully');
     }
 }

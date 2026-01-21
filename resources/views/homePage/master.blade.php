@@ -24,7 +24,7 @@
 <body>
     <div class="scroll-progress primary-bg"></div>
     @include('homePage.inc.header')
-
+ 
     <!-- Start Main content -->
    @yield('content')
     <!-- End Main content -->
