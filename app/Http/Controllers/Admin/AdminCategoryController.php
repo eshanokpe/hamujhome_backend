@@ -40,16 +40,35 @@ class AdminCategoryController extends Controller
         return redirect()->back()->with('success', 'Category Updated Successfully');
 
     }
-    public function delete($id){
+    
+    public function delete($id)
+    {
         $category = Category::find($id);
-        $category_default_id = Category::where('name',$category->name)->first()->id;
-        $this->category = Category::find($id);
-        if ($this->category-> name === 'Uncategorized')
+        
+        // Check if category exists
+        if (!$category) {
+            return redirect()->back()->with('error', 'Category not found');
+        }
+        
+        // Check if trying to delete "Uncategorized"
+        if ($category->name === 'Uncategorized') {
             abort(404);
-
-        $this->category->posts()->update(['category_id'=>$category_default_id]);        
-        $this->category->delete();
-        return redirect()->back()->with('success', 'Category Has been deleted.');
+        }
+        
+        // Get default category (Uncategorized)
+        $defaultCategory = Category::where('name', 'Uncategorized')->first();
+        
+        if (!$defaultCategory) {
+            return redirect()->back()->with('error', 'Default category not found');
+        }
+        
+        // Update posts to default category
+        $category->posts()->update(['category_id' => $defaultCategory->id]);
+        
+        // Delete the category
+        $category->delete();
+        
+        return redirect()->back()->with('success', 'Category has been deleted.');
     }
 
 
