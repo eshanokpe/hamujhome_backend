@@ -20,11 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
+
+    // Single post 
+    Route::get('/posts/{post}', [HomeController::class, 'show']);
     // Home page data
     Route::get('/home', [HomeController::class, 'index']);
     
-    // Single post
-    Route::get('/posts/{post}', [HomeController::class, 'show']);
     
     // All posts (blogs)
     Route::get('/posts', [HomeController::class, 'posts']);

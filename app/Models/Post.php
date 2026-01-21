@@ -13,7 +13,20 @@ use App\Models\Image;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title' , 'slug', 'excerpt', 'body', 'user_id', 'category_id','post_status','post_type','post_image'];
+    protected $fillable = [
+        'title', 
+        'slug', 
+        'excerpt', 
+        'body', 
+        'user_id', 
+        'category_id',
+        'post_status',
+        'post_type',
+        'post_image',
+        'meta_title',      // Add this
+        'meta_description', // Add this
+        'meta_keywords',    // Add this
+    ];
 
     public function author(){
         return $this->belongsTo(User::class,'user_id');

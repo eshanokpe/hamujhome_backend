@@ -108,13 +108,19 @@ class HomeController extends Controller
     /**
      * Get single post
      */
-    public function show($id)
+    public function show($slug)
     {
         try {
+            // $post = Post::where('slug', $slug)->firstOrFail();
+              \Log::info('API show method called with slug: ' . $slug);
+        
             $post = Post::with(['category', 'image', 'tags', 'comments', 'comments.user'])
                 ->withCount('comments')
-                ->findOrFail($id);
+                ->where('slug', $slug) 
+                ->first();  // Use first() instead of firstOrFail() for debugging
             
+           
+
             $recentPosts = Post::latest()
                 ->withCount('comments')
                 ->take(3)
@@ -144,7 +150,15 @@ class HomeController extends Controller
                 'whatsapp' => $this->generateShareUrl('whatsapp', $post->slug),
                 'reddit' => $this->generateShareUrl('reddit', $post->slug),
             ];
-            
+                \Log::info('Admin debug:', [
+        'admin_id' => $admin->id,
+        'admin_image_raw' => $admin->image,
+        'admin_image_type' => gettype($admin->image),
+        'is_object' => is_object($admin->image),
+        'is_string' => is_string($admin->image),
+        'admin_attributes' => $admin->getAttributes(), // See all attributes
+    ]);
+
             return response()->json([
                 'success' => true,
                 'message' => 'Post retrieved successfully',
@@ -158,7 +172,7 @@ class HomeController extends Controller
                         'name' => $admin->name,
                         'email' => $admin->email,
                         'bio' => $admin->bio,
-                        'avatar' => $admin->image ? asset('storage/' . $admin->image->path) : null,
+                        'avatar' => $admin->image ? asset('storage/' . $admin->image) : null,
                     ] : null,
                     'share_urls' => $shareUrls,
                 ]
