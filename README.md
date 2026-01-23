@@ -15,5 +15,8 @@
 cd public_html
 find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
-
+ 
 chmod 644 public/.htaccess
+
+admin:admin@gmail.com
+password: 12345678

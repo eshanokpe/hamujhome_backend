@@ -89,7 +89,7 @@ class HomeController extends Controller
                         ];
                     }),
             ];
-            
+            // \Log::info('data: ' . $data);
             return response()->json([
                 'success' => true,
                 'message' => 'Home data retrieved successfully',
@@ -97,6 +97,7 @@ class HomeController extends Controller
             ], 200);
             
         } catch (\Exception $e) {
+            //  \Log::info('data: ' . $e);
             return response()->json([
                 'success' => false,
                 'message' => 'Failed to retrieve home data',
@@ -151,13 +152,13 @@ class HomeController extends Controller
                 'reddit' => $this->generateShareUrl('reddit', $post->slug),
             ];
                 \Log::info('Admin debug:', [
-        'admin_id' => $admin->id,
-        'admin_image_raw' => $admin->image,
-        'admin_image_type' => gettype($admin->image),
-        'is_object' => is_object($admin->image),
-        'is_string' => is_string($admin->image),
-        'admin_attributes' => $admin->getAttributes(), // See all attributes
-    ]);
+            'admin_id' => $admin->id,
+            'admin_image_raw' => $admin->image,
+            'admin_image_type' => gettype($admin->image),
+            'is_object' => is_object($admin->image),
+            'is_string' => is_string($admin->image),
+            'admin_attributes' => $admin->getAttributes(), // See all attributes
+        ]);
 
             return response()->json([
                 'success' => true,
@@ -477,9 +478,8 @@ class HomeController extends Controller
             'body' => $post->body,
             'post_type' => $post->post_type,
             'post_status' => $post->post_status,
-            // 'image' => $post->post_image ? asset($post->post_image) : null,
             'image' => $post->post_image ? config('app.url') . '/' . $post->post_image : null,
-            // 'image_alt' => $post->post_image ? $post->post_image : null,
+            'video' => $post->post_video ?  config('app.url') . '/' . $post->post_video : null,
             'category' => $post->category ? [
                 'id' => $post->category->id,
                 'name' => $post->category->name,

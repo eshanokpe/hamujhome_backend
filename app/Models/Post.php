@@ -23,6 +23,9 @@ class Post extends Model
         'post_status',
         'post_type',
         'post_image',
+        'post_video', 
+        'video_url',  // Add this
+        'video_thumbnail', // Add this if you want thumbnails
         'meta_title',      // Add this
         'meta_description', // Add this
         'meta_keywords',    // Add this

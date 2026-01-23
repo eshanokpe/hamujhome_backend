@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function showBlog(Post $blog){
-
+ 
         $blog = Post::with('author')->withCount('comments')->find($blog->id);
 
         $recent_posts = Post::latest()->withCount('comments')->take(5)->get();
