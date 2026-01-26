@@ -143,7 +143,7 @@ class HomeController extends Controller
             ], 404);
         }
     }
-
+  
     private function formatPostDetail($post)
     {
         $formatted = $this->formatPost($post);
