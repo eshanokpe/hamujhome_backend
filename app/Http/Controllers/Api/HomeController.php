@@ -105,8 +105,8 @@ class HomeController extends Controller
             ], 500);
         }
     }
-    
-    /**
+     
+    /**.  
      * Get single post
      */
     public function show($slug)
