@@ -118,7 +118,7 @@ class AdminPostsController extends Controller
         
         $image = $request->file('post_image');
         $imageName = rand() . '.' . $image->getClientOriginalExtension();
-        $directory = 'upload/blogs/';
+        $directory = 'uploads/blogs/';
         $imageUrl = $directory . $imageName;
         
         // Ensure directory exists

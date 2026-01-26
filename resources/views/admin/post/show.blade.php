@@ -30,6 +30,7 @@
                                 <th>Sl.</th>
                                 <th>Blog Title</th>
                                 <th>Image</th>
+                                <th>Video</th>
                                 <th>Category</th>
                                 <th>Description</th>
                                 <th>Post Status</th>
@@ -43,6 +44,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{Str::limit($blog->title,20)}}</td>
                                 <td><img src="@if(!empty($blog->post_image)){{asset($blog->post_image)}}@endif" class="img-fluid w-50" alt=""></td>
+                                <td><video src="@if(!empty($blog->post_video)){{asset($blog->post_video)}}@endif" class="img-fluid w-50" alt=""></td>
                                 <td>{{$blog->category->name}}</td>
                                 <td>{!!Str::limit($blog->body, 15 )!!}</td>
                                 <td>@php if( $blog->post_status == 1){echo 'Active';}else{echo 'Draft';} @endphp</td>

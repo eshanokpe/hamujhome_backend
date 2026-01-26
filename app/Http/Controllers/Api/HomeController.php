@@ -112,71 +112,27 @@ class HomeController extends Controller
     public function show($slug)
     {
         try {
-            // $post = Post::where('slug', $slug)->firstOrFail();
-              \Log::info('API show method called with slug: ' . $slug);
+            \Log::info('API show method called with slug: ' . $slug);
         
             $post = Post::with(['category', 'image', 'tags', 'comments', 'comments.user'])
                 ->withCount('comments')
                 ->where('slug', $slug) 
-                ->first();  // Use first() instead of firstOrFail() for debugging
+                ->first();
             
-           
-
-            $recentPosts = Post::latest()
-                ->withCount('comments')
-                ->take(3)
-                ->get()
-                ->map(function ($post) {
-                    return $this->formatPost($post);
-                });
+            if (!$post) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Post not found',
+                ], 404);
+            }
             
-            $categories = Category::latest()
-                ->withCount('posts')
-                ->orderBy('posts_count', 'desc')
-                ->take(10)
-                ->get();
+            // Format the post data for frontend
+            $formattedPost = $this->formatPostDetail($post);
             
-            $tags = Tag::latest()
-                ->take(15)
-                ->get();
-            
-            $admin = Admin::find(1);
-            
-            // Generate share URLs
-            $shareUrls = [
-                'facebook' => $this->generateShareUrl('facebook', $post->slug),
-                'twitter' => $this->generateShareUrl('twitter', $post->slug),
-                'linkedin' => $this->generateShareUrl('linkedin', $post->slug),
-                'telegram' => $this->generateShareUrl('telegram', $post->slug),
-                'whatsapp' => $this->generateShareUrl('whatsapp', $post->slug),
-                'reddit' => $this->generateShareUrl('reddit', $post->slug),
-            ];
-                \Log::info('Admin debug:', [
-            'admin_id' => $admin->id,
-            'admin_image_raw' => $admin->image,
-            'admin_image_type' => gettype($admin->image),
-            'is_object' => is_object($admin->image),
-            'is_string' => is_string($admin->image),
-            'admin_attributes' => $admin->getAttributes(), // See all attributes
-        ]);
-
             return response()->json([
                 'success' => true,
                 'message' => 'Post retrieved successfully',
-                'data' => [
-                    'post' => $this->formatPostDetail($post),
-                    'recent_posts' => $recentPosts,
-                    'categories' => $categories,
-                    'tags' => $tags,
-                    'author' => $admin ? [
-                        'id' => $admin->id,
-                        'name' => $admin->name,
-                        'email' => $admin->email,
-                        'bio' => $admin->bio,
-                        'avatar' => $admin->image ? asset('storage/' . $admin->image) : null,
-                    ] : null,
-                    'share_urls' => $shareUrls,
-                ]
+                'data' => $formattedPost // Directly return the formatted post
             ], 200);
             
         } catch (\Exception $e) {
@@ -187,7 +143,41 @@ class HomeController extends Controller
             ], 404);
         }
     }
-    
+
+    private function formatPostDetail($post)
+    {
+        $formatted = $this->formatPost($post);
+        
+        // Ensure all required fields are present
+        $formatted['post_meta_title'] = $post->meta_title ?? $post->title;
+        $formatted['post_meta_tags'] = $post->meta_keywords ?? '';
+        
+        // Add tags
+        $formatted['tags'] = $post->tags->map(function ($tag) {
+            return [
+                'id' => $tag->id,
+                'name' => $tag->name,
+                'slug' => $tag->slug,
+            ];
+        });
+        
+        // Add comments
+        $formatted['comments'] = $post->comments->map(function ($comment) {
+            return [
+                'id' => $comment->id,
+                'the_comment' => $comment->body, // Match frontend expectation
+                'user' => $comment->user ? [
+                    'id' => $comment->user->id,
+                    'name' => $comment->user->name,
+                    'user_image' => $comment->user->image ? asset('storage/' . $comment->user->image) : null,
+                ] : null,
+                'created_at' => $comment->created_at->format('Y-m-d H:i:s'),
+            ];
+        });
+        
+        return $formatted;
+    }
+        
     /**
      * Get all posts (blogs)
      */
@@ -496,7 +486,7 @@ class HomeController extends Controller
     /**
      * Helper method to format detailed post data
      */
-    private function formatPostDetail($post)
+    private function formatPostDetail22($post)
     {
         $formatted = $this->formatPost($post);
         
