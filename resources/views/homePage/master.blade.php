@@ -34,13 +34,13 @@
 <body>
      <div class="main-page-wrapper">
         <!-- ===================================================
-                Loading Transition
-            ==================================================== -->
-            <div id="preloader">
-                <div id="ctn-preloader" class="ctn-preloader">
-                    <div class="icon"><img src="images/loader.gif" alt="" class="m-auto d-block" width="64"></div>
-                </div>
+            Loading Transition
+        ==================================================== -->
+        <div id="preloader">
+            <div id="ctn-preloader" class="ctn-preloader">
+                <div class="icon"><img src="images/loader.gif" alt="" class="m-auto d-block" width="64"></div>
             </div>
+        </div>
         @include('homePage.inc.header')
      </div>
  
