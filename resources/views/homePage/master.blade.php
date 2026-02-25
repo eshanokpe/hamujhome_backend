@@ -29,18 +29,20 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="all">
 	<!-- responsive style sheet -->
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all">
-
-	<!-- Fix Internet Explorer ______________________________________-->
-	<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="vendor/html5shiv.js"></script>
-			<script src="vendor/respond.js"></script>
-		<![endif]-->
 </head>
 
 <body>
-    <div class="scroll-progress primary-bg"></div>
-    @include('homePage.inc.header')
+     <div class="main-page-wrapper">
+        <!-- ===================================================
+                Loading Transition
+            ==================================================== -->
+            <div id="preloader">
+                <div id="ctn-preloader" class="ctn-preloader">
+                    <div class="icon"><img src="images/loader.gif" alt="" class="m-auto d-block" width="64"></div>
+                </div>
+            </div>
+        @include('homePage.inc.header')
+     </div>
  
     <!-- Start Main content -->
    @yield('content')
