@@ -22,7 +22,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="#0D1A1C">
 	<title>Homy-Real Estate HTML5 Template & Dashboard</title>
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
+	<link rel="icon" type="image/png" sizes="56x56" href="{{asset('static')}}images/fav-icon/icon.png">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all">
 	<!-- Main style sheet -->

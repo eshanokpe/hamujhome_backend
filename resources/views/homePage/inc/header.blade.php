@@ -1,233 +1,179 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<aside id="sidebar-wrapper" class="custom-scrollbar offcanvas-sidebar">
-    <button class="off-canvas-close"><i class="elegant-icon icon_close"></i></button>
-    <div class="sidebar-inner">
-        <!--Categories-->
-        <div class="sidebar-widget widget_categories mb-50 mt-30">
-            <div class="widget-header-2 position-relative">
-                <h5 class="mt-5 mb-15">Hot topics</h5>
-            </div> 
-            <div class="widget_nav_menu">
-                <ul>
-                    @foreach($allcategory as $cat)
-                        <li class="cat-item cat-item-2"><a href="{{route('home.category', $cat)}}">{{$cat->name}}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-{{--        <!--Latest-->--}}
-{{--        <div class="sidebar-widget widget-latest-posts mb-50">--}}
-{{--            <div class="widget-header-2 position-relative mb-30">--}}
-{{--                <h5 class="mt-5 mb-30">Don't miss</h5>--}}
-{{--            </div>--}}
-{{--            <div class="post-block-list post-module-1 post-module-5">--}}
-{{--                <ul class="list-post">--}}
-{{--                    <li class="mb-30">--}}
-{{--                        <div class="d-flex hover-up-2 transition-normal">--}}
-{{--                            <div class="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">--}}
-{{--                                <a class="color-white" href="single.html">--}}
-{{--                                    <img src="{{asset('static')}}/assets/imgs/news/thumb-1.jpg" alt="">--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                            <div class="post-content media-body">--}}
-{{--                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a href="single.html">The Life of a Travel Writer with David Farley</a></h6>--}}
-{{--                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">--}}
-{{--                                    <span class="post-on">05 August</span>--}}
-{{--                                    <span class="post-by has-dot">300 views</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                    <li class="mb-30">--}}
-{{--                        <div class="d-flex hover-up-2 transition-normal">--}}
-{{--                            <div class="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">--}}
-{{--                                <a class="color-white" href="single.html">--}}
-{{--                                    <img src="{{asset('static')}}/assets/imgs/news/thumb-2.jpg" alt="">--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                            <div class="post-content media-body">--}}
-{{--                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a href="single.html">Why Don’t More Black American Women Travel Solo?</a></h6>--}}
-{{--                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">--}}
-{{--                                    <span class="post-on">12 August</span>--}}
-{{--                                    <span class="post-by has-dot">23k views</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                    <li class="mb-30">--}}
-{{--                        <div class="d-flex hover-up-2 transition-normal">--}}
-{{--                            <div class="post-thumb post-thumb-80 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">--}}
-{{--                                <a class="color-white" href="single.html">--}}
-{{--                                    <img src="{{asset('static')}}/assets/imgs/news/thumb-3.jpg" alt="">--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                            <div class="post-content media-body">--}}
-{{--                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a href="single.html">The 22 Best Things to See and Do in Bangkok</a></h6>--}}
-{{--                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">--}}
-{{--                                    <span class="post-on">27 August</span>--}}
-{{--                                    <span class="post-by has-dot">23k views</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <!--Ads-->--}}
-{{--        <div class="sidebar-widget widget-ads">--}}
-{{--            <div class="widget-header-2 position-relative mb-30">--}}
-{{--                <h5 class="mt-5 mb-30">Advertise banner</h5>--}}
-{{--            </div>--}}
-{{--            <a href="https://themeforest.net/user/alithemes/portfolio" target="_blank">--}}
-{{--                <img class="advertise-img border-radius-5" src="{{asset('static')}}/assets/imgs/ads/ads-1.jpg" alt="">--}}
-{{--            </a>--}}
-{{--        </div>--}}
+<!-- 
+=============================================
+    Theme Main Menu
+============================================== 
+-->
+<header class="theme-main-menu menu-overlay menu-style-one sticky-menu">
+    <div class="alert-wrapper text-center">
+        <p class="fs-16 m0 text-white">The <a href="listing_01.html" class="fw-500">flash sale</a> go on. The offer will end in — <span>This Sunday</span></p>
     </div>
-</aside>
-<!-- Start Header -->
-<header class="main-header header-style-1 font-heading">
-    <div class="header-top">
-        <div class="container">
-            <div class="row pt-20 pb-20">
-                <div class="col-md-3 col-xs-6">
-                    <a href="{{route('home')}}"> 
-                        <img class="logo" src="{{asset($website->website_logo)}}" alt=""></a>
+    <!-- /.alert-wrapper -->
+    <div class="inner-content gap-one">
+        <div class="top-header position-relative">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="logo order-lg-0">
+                    <a href="index.html" class="d-flex align-items-center">
+                        <img src="images/logo/logo_01.svg" alt="">
+                    </a>
                 </div>
-                <div class="col-md-9 col-xs-6 text-right header-top-right ">
-                    <ul class="list-inline nav-topbar d-none d-md-inline">
-                        <li class="list-inline-item menu-item-has-children"><a href="#">Pages</a>
-                            <ul class="sub-menu font-small">
-                                @foreach($pages as $row)
-                                <li class=""><a href="{{route('home.page',['slug'=>$row->slug])}}">{{$row->page_title}}</a></li>
-                                @endforeach
-                            </ul>
+                <!-- logo -->
+                <div class="right-widget ms-auto ms-lg-0 me-3 me-lg-0 order-lg-3">
+                    <ul class="d-flex align-items-center style-none">
+                        <li>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="btn-one"><i class="fa-regular fa-lock"></i> <span>Login</span></a>
                         </li>
-                        @guest
-                        <li class="list-inline-item menu-item-has-children"><a href="#">Login or Register</a>
-                            <ul class="sub-menu font-small">
-                                <li class=""><a href="{{route('login')}}">Login</a></li>
-                                <li class=""><a href="{{route('register')}}">Register</a></li>
-                            </ul>
+                        <li class="d-none d-md-inline-block ms-3">
+                            <a href="dashboard/add-property.html" class="btn-two" target="_blank"><span>Add Listing</span> <i class="fa-thin fa-arrow-up-right"></i></a>
                         </li>
-                        @endguest
-                        @auth
-                            <li class="list-inline-item menu-item-has-children"><a href="#">{{auth()->user()->name}}</a>
-                                <ul class="sub-menu font-small">
-
-                                    @if(auth()->user()->role_id == 2)
-                                        <li class=""><a href="{{route('admin.index')}}">Admin Panel</a></li>
-                                    @endif
-
-                                    <li class=""><a onclick="event.preventDefault(); document.getElementById('nav-logout').submit()" href="#">Logout</a>
-                                        <form action="{{route('logout')}}" id="nav-logout" method="post">
-                                            @csrf
-                                        </form>
+                    </ul>
+                </div>
+                <nav class="navbar navbar-expand-lg p0 order-lg-2">
+                    <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav align-items-lg-center">
+                            <li class="d-block d-lg-none"><div class="logo"><a href="index.html" class="d-block"><img src="images/logo/logo_01.svg" alt=""></a></div></li>
+                            <li class="nav-item dashboard-menu">
+                                <a class="nav-link" href="dashboard/dashboard-index.html" target="_blank">Dashboard</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside" aria-expanded="false">Home
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html" class="dropdown-item"><span>Home 01</span></a></li>
+                                    <li><a href="index-2.html" class="dropdown-item"><span>Home 02</span></a></li>
+                                    <li><a href="index-3.html" class="dropdown-item"><span>Home 03</span></a></li>
+                                    <li><a href="index-4.html" class="dropdown-item"><span>Home 04</span></a></li>
+                                    <li><a href="index-5.html" class="dropdown-item"><span>Home 05</span></a></li>
+                                    <li><a href="index-6.html" class="dropdown-item"><span>Home 06</span></a></li>
+                                    <li><a href="index-7.html" class="dropdown-item"><span>Home 07</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown mega-dropdown-sm">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Listing
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="row gx-1">
+                                        <div class="col-lg-4">
+                                            <div class="menu-column">
+                                                <h6 class="mega-menu-title">Listing Type</h6>
+                                                <ul class="style-none mega-dropdown-list">
+                                                    <li><a href="listing_01.html" class="dropdown-item"><span>Grid Sidebar-1</span></a></li>
+                                                    <li><a href="listing_05.html" class="dropdown-item"><span>Grid Sidebar-2</span></a></li>
+                                                    <li><a href="listing_02.html" class="dropdown-item"><span>List Sidebar-1</span></a></li>
+                                                    <li><a href="listing_06.html" class="dropdown-item"><span>List Sidebar-2</span></a></li>
+                                                    <li><a href="listing_03.html" class="dropdown-item"><span>Grid Top Filter-1</span></a></li>
+                                                    <li><a href="listing_07.html" class="dropdown-item"><span>Grid Top Filter-2</span></a></li>
+                                                    <li><a href="listing_04.html" class="dropdown-item"><span>List Top Filter-1</span></a></li>
+                                                    <li><a href="listing_08.html" class="dropdown-item"><span>List Top Filter-2</span></a></li>
+                                                    <li><a href="listing_09.html" class="dropdown-item"><span>Grid Banner Filter-1</span></a></li>
+                                                </ul>
+                                            </div> <!--/.menu-column -->
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="menu-column">
+                                                <h6 class="mega-menu-title">Listing Type</h6>
+                                                <ul class="style-none mega-dropdown-list">
+                                                    <li><a href="listing_11.html" class="dropdown-item"><span>Grid Banner Filter-2</span></a></li>
+                                                    <li><a href="listing_10.html" class="dropdown-item"><span>List Banner Filter-1</span></a></li>
+                                                    <li><a href="listing_12.html" class="dropdown-item"><span>List Banner Filter-2</span></a></li>
+                                                    <li><a href="listing_13.html" class="dropdown-item"><span>Grid Fullwidth</span></a></li>
+                                                    <li><a href="listing_14.html" class="dropdown-item"><span>Grid Fullwidth Map-1</span></a></li>
+                                                    <li><a href="listing_16.html" class="dropdown-item"><span>Grid Fullwidth Map-2</span></a></li>
+                                                    <li><a href="listing_15.html" class="dropdown-item"><span>List Fullwidth Map-1</span></a></li>
+                                                    <li><a href="listing_17.html" class="dropdown-item"><span>List Fullwidth Map-2</span></a></li>
+                                                </ul>
+                                            </div> <!--/.menu-column -->
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="menu-column">
+                                                <h6 class="mega-menu-title">Single Listing</h6>
+                                                <ul class="style-none mega-dropdown-list">
+                                                    <li><a href="listing_details_01.html" class="dropdown-item"><span>Listing Details-1</span></a></li>
+                                                    <li><a href="listing_details_02.html" class="dropdown-item"><span>Listing Details-2</span></a></li>
+                                                    <li><a href="listing_details_03.html" class="dropdown-item"><span>Listing Details-3</span></a></li>
+                                                    <li><a href="listing_details_04.html" class="dropdown-item"><span>Listing Details-4</span></a></li>
+                                                    <li><a href="listing_details_05.html" class="dropdown-item"><span>Listing Details-5</span></a></li>
+                                                    <li><a href="listing_details_06.html" class="dropdown-item"><span>Listing Details-6</span></a></li>
+                                                </ul>
+                                            </div> <!--/.menu-column -->
+                                        </div>
                                     </li>
                                 </ul>
                             </li>
-                        @endauth
-
-                    </ul>
-                    <span class="vertical-divider mr-20 ml-20 d-none d-md-inline"></span>
-                    <button class="search-icon d-none d-md-inline"><span class="mr-15 text-muted font-small"><i class="elegant-icon icon_search mr-5"></i>Search</span></button>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-sticky">
-        <div class="container align-self-center">
-            <div class="mobile_menu d-lg-none d-block"></div>
-            <div class="main-nav d-none d-lg-block float-left">
-                <nav>
-                    <!--Desktop menu-->
-                    <ul class="main-menu d-none d-lg-inline font-small">
-                        <li class="">
-                            <a href="{{route('home')}}"> <i class="elegant-icon icon_house_alt mr-5"></i>Home Page</a>
-                        </li>
-                        @foreach($categories as $cat)
-                        <li class=""> <a href="{{route('home.category', $cat)}}">
-                                {{$cat->name}}</a> </li>
-                        @endforeach
-                    </ul>
-                    <!--Mobile menu-->
-                    <ul id="mobile-menu" class="d-block d-lg-none text-muted">
-                        <li class="menu-item-has-children">
-                            <a href="{{route('home')}}">Home</a>
-                        </li>
-                        <li class="menu-item-has-children"><a href="#">Pages</a>
-                            <ul class="sub-menu font-small">
-                                @foreach($pages as $row)
-                                    <li class=""><a href="{{route('home.page',['slug'=>$row->slug])}}">{{$row->page_title}}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children"><a href="#">Category</a>
-                            <ul class="sub-menu font-small">
-                                @foreach($allcategory as $cat)
-                                    <li class=""><a href="{{route('home.category', $cat)}}">{{$cat->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </li>
-                        @guest
-                            <li class=" menu-item-has-children"><a href="#">Login or Register</a>
-                                <ul class="sub-menu font-small">
-                                    <li class=""><a href="{{route('login')}}">Login</a></li>
-                                    <li class=""><a href="{{route('register')}}">Register</a></li>
-                                </ul>
-                            </li>
-                        @endguest
-                        @auth
-                            <li class=" menu-item-has-children"><a href="#">{{auth()->user()->name}}</a>
-                                <ul class="sub-menu font-small">
-
-                                    <li class=""><a onclick="event.preventDefault(); document.getElementById('nav-logout').submit()" href="#">Logout</a>
-                                        <form action="{{route('logout')}}" id="nav-logout" method="post">
-                                            @csrf
-                                        </form>
+                            <li class="nav-item dropdown mega-dropdown-sm">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside" aria-expanded="false">Pages
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="row gx-1">
+                                        <div class="col-lg-4">
+                                            <div class="menu-column">
+                                                <h6 class="mega-menu-title">Essential</h6>
+                                                <ul class="style-none mega-dropdown-list">
+                                                    <li><a href="about_us_01.html" class="dropdown-item"><span>About us -1</span></a></li>
+                                                    <li><a href="about_us_02.html" class="dropdown-item"><span>About us -2</span></a></li>
+                                                    <li><a href="agency.html" class="dropdown-item"><span>Agency</span></a></li>
+                                                    <li><a href="agency_details.html" class="dropdown-item"><span>Agency Details</span></a></li>
+                                                    <li><a href="agent.html" class="dropdown-item"><span>Agent</span></a></li>
+                                                    <li><a href="agent_details.html" class="dropdown-item"><span>Agent Details</span></a></li>
+                                                </ul>
+                                            </div> <!--/.menu-column -->
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="menu-column">
+                                                <h6 class="mega-menu-title">Features</h6>
+                                                <ul class="style-none mega-dropdown-list">
+                                                    <li><a href="project_01.html" class="dropdown-item"><span>Project -1</span></a></li>
+                                                    <li><a href="project_02.html" class="dropdown-item"><span>Project -2</span></a></li>
+                                                    <li><a href="project_03.html" class="dropdown-item"><span>Project -3</span></a></li>
+                                                    <li><a href="project_04.html" class="dropdown-item"><span>Project -4</span></a></li>
+                                                    <li><a href="project_details_01.html" class="dropdown-item"><span>Project Details</span></a></li>
+                                                    <li><a href="service_01.html" class="dropdown-item"><span>Services -1</span></a></li>
+                                                    <li><a href="service_02.html" class="dropdown-item"><span>Services -2</span></a></li>
+                                                    <li><a href="service_details.html" class="dropdown-item"><span>Service Details</span></a></li>
+                                                </ul>
+                                            </div> <!--/.menu-column -->
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="menu-column">
+                                                <h6 class="mega-menu-title">Others</h6>
+                                                <ul class="style-none mega-dropdown-list">
+                                                    <li><a href="compare.html" class="dropdown-item"><span>Property Compare</span></a></li>
+                                                    <li><a href="pricing_01.html" class="dropdown-item"><span>Pricing -1</span></a></li>
+                                                    <li><a href="pricing_02.html" class="dropdown-item"><span>Pricing -2</span></a></li>
+                                                    <li><a href="contact.html" class="dropdown-item"><span>Contact Us</span></a></li>
+                                                    <li><a href="faq.html" class="dropdown-item"><span>FAQ's</span></a></li>
+                                                    <li><a href="404.html" class="dropdown-item"><span>404-Error</span></a></li>
+                                                </ul>
+                                            </div> <!--/.menu-column -->
+                                        </div>
                                     </li>
                                 </ul>
                             </li>
-                        @endauth
-                    </ul>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside" aria-expanded="false">Blog
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="blog_01.html" class="dropdown-item"><span>Blog Grid</span></a></li>
+                                    <li><a href="blog_02.html" class="dropdown-item"><span>Blog List</span></a></li>
+                                    <li><a href="blog_03.html" class="dropdown-item"><span>Blog 2 column</span></a></li>
+                                    <li><a href="blog_details.html" class="dropdown-item"><span>Blog Details</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="d-md-none ps-2 pe-2 mt-20">
+                                <a href="dashboard/add-property.html" class="btn-two w-100" target="_blank"><span>Add Listing</span> <i class="fa-thin fa-arrow-up-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
-            <div class="float-right header-tools text-muted font-small">
-                <ul class="header-social-network d-inline-block list-inline mr-15">
-                    @foreach($socials as $row)
-                        <li class="list-inline-item"><a class="pt" href="{{$row->social_link}}" target="_blank" title="Facebook"><i class="{{$row->social_icon}}"></i></a></li>
-                    @endforeach
-                </ul>
-                <div class="off-canvas-toggle-cover d-inline-block">
-                    <div class="off-canvas-toggle hidden d-inline-block" id="off-canvas-toggle">
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</header>
-<!--Start search form-->
-
-<div class="main-search-form">
-    <div class="container">
-        <div class=" pt-50 pb-50 ">
-            <div class="row mb-20">
-                <div class="col-12 align-self-center main-search-form-cover m-auto">
-                    <p class="text-center"><span class="search-text-bg">Search</span></p>
-                    <form action="{{route('search.post')}}" class="search-header" method="get">
-                        <div class="input-group w-100">
-                            <input type="text" class="form-control" name="search" placeholder="Search stories, places and people">
-                            <div class="input-group-append">
-                                <button class="btn btn-search bg-white" type="submit">
-                                    <i class="elegant-icon icon_search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        </div> <!--/.top-header-->
+    </div> <!-- /.inner-content -->
+</header> 
+<!-- /.theme-main-menu -->
