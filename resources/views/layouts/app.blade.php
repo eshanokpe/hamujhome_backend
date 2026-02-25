@@ -15,6 +15,15 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+            <!-- ===================================================
+                Loading Transition
+            ==================================================== -->
+            <div id="preloader">
+                <div id="ctn-preloader" class="ctn-preloader">
+                    <div class="icon"><img src="images/loader.gif" alt="" class="m-auto d-block" width="64"></div>
+                </div>
+            </div>
+
             @include('layouts.navigation')
 
             <!-- Page Heading -->
