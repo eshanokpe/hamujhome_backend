@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public $blog;
-    public function index(){
+    public function index(){ 
         $slider = Post::with('category')->where('post_status',1)->where('post_type', 1)->latest()->withCount('comments')->take(5)->get();
         $featured = Post::with('category')->where('post_status',1)
             ->where('post_type', 2)->latest()->withCount('comments')->take(6)->get();
@@ -55,19 +55,16 @@ class HomeController extends Controller
 
     }
 
-
-
-
     public function blogs(){
         $blogs = Post::with('image')->latest()->withCount('comments')->paginate(10);
 
         $recent_posts = Post::latest()->withCount('comments')->take(5)->get();
 
         $categories = Category::latest()->withCount('posts')->orderBy('posts_count', 'desc')->take(10)->get();
-
+ 
         $tags = Tag::latest()->take(15)->get();
 
-        return view('frontEnd.blog.blogs',[
+        return view('homePage.blog.index',[
             'blogs' => $blogs,
             'recent_posts' => $recent_posts,
             'cates' => $categories,
@@ -98,13 +95,53 @@ class HomeController extends Controller
          $blogs = Post::where('title','like','%'.$request->search.'%')->where('body','like','%'.$request->search.'%')->paginate(9);
             return view('homePage.search.search',compact('blogs','search'));
 
-     }
+    }
 
-     public function page($slug){
-         $page = Page::where('slug', $slug)->first();
+    public function page($slug){
+        $page = Page::where('slug', $slug)->first();
         return view('homePage.page.index', compact('page'));
-     }
+    }
 
+    public function about(){
+        return view('homePage.home.about');
+    }
+    
+    public function portfolio(){
+        return view('homePage.home.portfolio');
+    }
+
+    public function services(){
+        return view('homePage.services.index');
+    }
+
+    public function servicesProperties(){
+        return view('homePage.services.properties');
+    }
+
+    public function servicesHoms(){
+        return view('homePage.services.hom');
+    }
+
+    public function servicesConsultation(){
+        return view('homePage.services.consultation');
+    }
+ 
+    public function shop(){
+        return view('homePage.shop.index');
+    }
+
+    public function showShop($slug){
+        if($slug == 'birch_sleek_sofa'){
+            return view('homePage.shop.details1');
+        }else{
+            return view('homePage.shop.details2');
+        }
+        
+    }
+
+    public function contact(){
+        return view('homePage.home.contact');
+    }
  
 
 

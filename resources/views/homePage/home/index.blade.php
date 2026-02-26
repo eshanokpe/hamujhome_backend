@@ -1,166 +1,821 @@
-@extends('homePage.master')
+@extends('layouts.master')
 @section('title')
 {{$website->name}}
 @endsection
-@section('content')
-    <main  class="bg-grey pb-30">
-        <div class="container pt-30">
-            <div class="featured-slider-3 position-relative">
-                <div class="slider-3-arrow-cover"></div>
-                <div class="featured-slider-3-items">
-                    @foreach($slider as $row)
-                    <div class="slider-single overflow-hidden border-radius-10">
-                        <div class="post-thumb position-relative">
-                            <div class="thumb-overlay position-relative" style="background-image: url({{asset($row->post_image)}})">
-                                <div class="post-content-overlay">
-                                    <div class="container">
-                                        <div class="entry-meta meta-0 font-small mb-20">
-                                            <a href="category.html" tabindex="0"><span class="post-cat text-info text-uppercase">{{$row->category->name}}</span></a>
-                                        </div>
-                                        <h1 class="post-title mb-20 font-weight-900 text-white">
-                                            <a class="text-white" href="{{route('post.single', $row)}}" tabindex="0">{{$row->title}}</a>
-                                        </h1>
-                                        <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-                                            <span class="post-on">{{ $row->created_at->format('d M Y') }}</span>
-                                            <span class="post-on">{{$row->comments_count}} Comments</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
+@section('content') 
+
+		<!-- 
+		=============================================
+			Hero Banner
+		============================================== 
+		-->
+		<div class="hero-banner-eight z-1 pt-250 xl-pt-200 pb-250 xl-pb-150 lg-pb-100 position-relative">
+			<div class="container position-relative">
+				<div class="row">
+					<div class="col-xl-9 col-lg-10 col-md-10 m-auto">
+						<h1 class="hero-heading text-white text-center wow fadeInUp">Find the Right <br> Home for Your Family</h1>
+						<p class="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">We’ve more than 745,000 apartments, place & plot.</p>
+					</div>
+				</div>
+				<div class="search-wrapper-four me-auto ms-auto mt-45 lg-mt-20 position-relative">
+					<nav class="d-flex justify-content-center">
+						<div class="nav nav-tabs border-0" role="tablist">
+							<button class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy" type="button" role="tab" aria-controls="buy" aria-selected="true">Rent</button>
+							<button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent" type="button" role="tab" aria-controls="rent" aria-selected="false">SAle</button>
+						</div>
+					</nav>
+					<div class="bg-wrapper mt-30">
+						<div class="tab-content">
+							<div class="tab-pane fade show active" id="buy" role="tabpanel" aria-labelledby="buy-tab" tabindex="0">
+								<form action="#" class="position-relative z-1">
+									<input type="text" placeholder="Type location name here...">
+									<button class="tran3s"><img src="{{asset('assets')}}/images/icon/icon_75.svg" alt="" class="m-auto"></button>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="rent" role="tabpanel" aria-labelledby="rent-tab" tabindex="0">
+								<form action="#" class="position-relative z-1">
+									<input type="text" placeholder="Type location name here...">
+									<button class="tran3s"><img src="{{asset('assets')}}/images/icon/icon_75.svg" alt="" class="m-auto"></button>
+								</form>
+							</div>
+						</div>
+						<!-- /.tab-content -->
+					</div>
+				</div>
+				<!-- /.search-wrapper-four -->
+			</div>
+		</div>
+		<!-- /.hero-banner-eight -->
+
+
+		<!--
+		=====================================================
+			BLock Feature One
+		=====================================================
+		-->
+		<div class="block-feature-one mt-150 xl-mt-120">
+			<div class="container container-large">
+				<div class="title-one text-center mb-60 xl-mb-30 lg-mb-20 wow fadeInUp">
+					<h3>Our Business Units</h3>
+					<p class="fs-24">Your trusted real estate partner in every transaction.</p>
+				</div>
+				<!-- /.title-one -->
+				
+				<div class="row gx-xl-5">
+					<div class="col-md-4">
+						<div class="card-style-twelve text-center wow fadeInUp mt-20">
+							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
+                                <img src="{{asset('assets')}}/images/icon/icon_76.svg" alt=""></div>
+							<h6 class="fs-20 text-uppercase fw-bold">Properties</h6>
+							<p class="fs-22 ps-xxl-4 pe-xxl-4">
+                                  Aside development of properties for individuals (residential & commercial), we also have numbers of our own residential development across Nigeria. 
+                
+                            </p>
+						</div>
+						<!-- /.card-style-twelve -->
+					</div>
+					<div class="col-md-4">
+						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.1s">
+							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
+                                <img src="{{asset('assets')}}/images/icon/icon_77.svg" alt=""></div>
+							<h6 class="fs-20 text-uppercase fw-bold">Shortlets</h6>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">
+                                   We have created magical spaces to spark love, joy, happiness and reunion between you and your loved ones. We would love to host you.
+                            </p>
+						</div>
+						<!-- /.card-style-twelve -->
+					</div>
+					<div class="col-md-4">
+						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
+							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
+                                <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
+							<h6 class="fs-20 text-uppercase fw-bold">HMO</h6>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">I
+                                  We specialize in beautiful, budget-friendly homes for professionals and Long-term, lucrative returns for our partners
+                    
+                            </p>
+						</div>
+						<!-- /.card-style-twelve -->
+					</div>
+                    <div class="col-md-4">
+						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
+							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
+                                <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
+							<h6 class="fs-20 text-uppercase fw-bold">Furniture</h6>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">
+                                Design, manufacture, restoration, custom solutions, expert
+                                craftsmanship and delivery of high-quality furniture for
+                                residential and commercial spaces.
+                            </p>
+						</div>
+						<!-- /.card-style-twelve -->
+					</div>
+                    <div class="col-md-4">
+						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
+							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
+                                <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
+							<h6 class="fs-20 text-uppercase fw-bold">Interiors</h6>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">
+                                Planning, and execution of stunning interiors for residential and
+                                commercial spaces, custom solutions, space optimization, etc.
+                            </p>
+						</div>
+						<!-- /.card-style-twelve -->
+					</div>
+                     <div class="col-md-4">
+						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
+							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
+                                <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
+							<h6 class="fs-20 text-uppercase fw-bold">Construction</h6>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">
+                                Property development, repair, and renovations for
+                                residential and commercial structures.
+                            </p>
+						</div>
+						<!-- /.card-style-twelve -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.block-feature-one -->
+
+
+
+		<!-- 
+		=============================================
+			Property Listing One
+		============================================== 
+		-->
+		<div class="property-listing-one mt-170 xl-mt-120">
+			<div class="container container-large">
+				<div class="position-relative">
+					<div class="title-one text-center mb-25 lg-mb-10 wow fadeInUp">
+						<h3>Featured Project</h3>
+						<p class="fs-22 mt-xs">Explore Our Featured Project.</p>
+					</div>
+					<!-- /.title-one -->
+
+					<div class="row gx-xxl-5">
+						<div class="col-lg-4 col-md-6 mt-40 wow fadeInUp">
+							<div class="listing-card-four overflow-hidden d-flex align-items-end position-relative z-1" style="background-image: url({{asset('assets')}}/images/listing/img_20.jpg);">
+								<div class="tag fw-500">RENT</div>
+								<div class="property-info tran3s w-100">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="pe-3">
+											<a href="listing_details_04.html" class="title fw-500 tran4s">Blueberry villa.</a>
+											<div class="address tran4s">Mirpur 10, Stadium dhaka 1208</div>
+										</div>
+										<a href="listing_details_04.html" class="btn-four inverse"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+									<div class="pl-footer tran4s">
+										<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+											<li>
+												<strong class="color-dark fw-500">2137</strong> 
+												<span class="fs-16">sqft</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">03</strong> 
+												<span class="fs-16">bed</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">01</strong> 
+												<span class="fs-16">kitchen</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">02</strong> 
+												<span class="fs-16">bath</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.property-info -->
+							</div>
+							<!-- /.listing-card-four -->
+						</div>
+						<div class="col-lg-4 col-md-6 mt-40 wow fadeInUp" data-wow-delay="0.1s">
+							<div class="listing-card-four overflow-hidden d-flex align-items-end position-relative z-1" style="background-image: url({{asset('assets')}}/images/listing/img_21.jpg);">
+								<div class="tag fw-500">SELL</div>
+								<div class="property-info tran3s w-100">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="pe-3">
+											<a href="listing_details_04.html" class="title fw-500 tran4s">Swimming Pool Villa</a>
+											<div class="address tran4s">127 green road, California, USA</div>
+										</div>
+										<a href="listing_details_04.html" class="btn-four inverse"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+									<div class="pl-footer tran4s">
+										<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+											<li>
+												<strong class="color-dark fw-500">2137</strong> 
+												<span class="fs-16">sqft</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">03</strong> 
+												<span class="fs-16">bed</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">01</strong> 
+												<span class="fs-16">kitchen</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">02</strong> 
+												<span class="fs-16">bath</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.property-info -->
+							</div>
+							<!-- /.listing-card-four -->
+						</div>
+						<div class="col-lg-4 col-md-6 mt-40 wow fadeInUp" data-wow-delay="0.2s">
+							<div class="listing-card-four overflow-hidden d-flex align-items-end position-relative z-1" style="background-image: url({{asset('assets')}}/images/listing/img_22.jpg);">
+								<div class="tag fw-500">RENT</div>
+								<div class="property-info tran3s w-100">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="pe-3">
+											<a href="listing_details_04.html" class="title fw-500 tran4s">Modern Duplex</a>
+											<div class="address tran4s">Twin tower, 32 street, Florida</div>
+										</div>
+										<a href="listing_details_04.html" class="btn-four inverse"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+									<div class="pl-footer tran4s">
+										<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+											<li>
+												<strong class="color-dark fw-500">2137</strong> 
+												<span class="fs-16">sqft</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">03</strong> 
+												<span class="fs-16">bed</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">01</strong> 
+												<span class="fs-16">kitchen</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">02</strong> 
+												<span class="fs-16">bath</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.property-info -->
+							</div>
+							<!-- /.listing-card-four -->
+						</div>
+						<div class="col-lg-4 col-md-6 mt-40 wow fadeInUp">
+							<div class="listing-card-four overflow-hidden d-flex align-items-end position-relative z-1" style="background-image: url({{asset('assets')}}/images/listing/img_20.jpg);">
+								<div class="tag fw-500">RENT</div>
+								<div class="property-info tran3s w-100">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="pe-3">
+											<a href="listing_details_04.html" class="title fw-500 tran4s">Blueberry villa.</a>
+											<div class="address tran4s">Mirpur 10, Stadium dhaka 1208</div>
+										</div>
+										<a href="listing_details_04.html" class="btn-four inverse"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+									<div class="pl-footer tran4s">
+										<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+											<li>
+												<strong class="color-dark fw-500">2137</strong> 
+												<span class="fs-16">sqft</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">03</strong> 
+												<span class="fs-16">bed</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">01</strong> 
+												<span class="fs-16">kitchen</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">02</strong> 
+												<span class="fs-16">bath</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.property-info -->
+							</div>
+							<!-- /.listing-card-four -->
+						</div>
+						<div class="col-lg-4 col-md-6 mt-40 wow fadeInUp" data-wow-delay="0.1s">
+							<div class="listing-card-four overflow-hidden d-flex align-items-end position-relative z-1" style="background-image: url({{asset('assets')}}/images/listing/img_21.jpg);">
+								<div class="tag fw-500">SELL</div>
+								<div class="property-info tran3s w-100">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="pe-3">
+											<a href="listing_details_04.html" class="title fw-500 tran4s">Swimming Pool Villa</a>
+											<div class="address tran4s">127 green road, California, USA</div>
+										</div>
+										<a href="listing_details_04.html" class="btn-four inverse"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+									<div class="pl-footer tran4s">
+										<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+											<li>
+												<strong class="color-dark fw-500">2137</strong> 
+												<span class="fs-16">sqft</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">03</strong> 
+												<span class="fs-16">bed</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">01</strong> 
+												<span class="fs-16">kitchen</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">02</strong> 
+												<span class="fs-16">bath</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.property-info -->
+							</div>
+							<!-- /.listing-card-four -->
+						</div>
+						<div class="col-lg-4 col-md-6 mt-40 wow fadeInUp" data-wow-delay="0.2s">
+							<div class="listing-card-four overflow-hidden d-flex align-items-end position-relative z-1" style="background-image: url({{asset('assets')}}/images/listing/img_22.jpg);">
+								<div class="tag fw-500">RENT</div>
+								<div class="property-info tran3s w-100">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="pe-3">
+											<a href="listing_details_04.html" class="title fw-500 tran4s">Modern Duplex</a>
+											<div class="address tran4s">Twin tower, 32 street, Florida</div>
+										</div>
+										<a href="listing_details_04.html" class="btn-four inverse"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+									<div class="pl-footer tran4s">
+										<ul class="style-none feature d-flex flex-wrap align-items-center justify-content-between">
+											<li>
+												<strong class="color-dark fw-500">2137</strong> 
+												<span class="fs-16">sqft</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">03</strong> 
+												<span class="fs-16">bed</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">01</strong> 
+												<span class="fs-16">kitchen</span>
+											</li>
+											<li>
+												<strong class="color-dark fw-500">02</strong> 
+												<span class="fs-16">bath</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /.property-info -->
+							</div>
+							<!-- /.listing-card-four -->
+						</div>
+					</div>
+
+					<div class="text-center mt-100 md-mt-60">
+						<a href="listing_06.html" class="btn-eight"><span>Explore All</span> <i class="bi bi-arrow-up-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.property-listing-one -->
+
+
+		
+		
+
+
+
+		<!--
+		=====================================================
+			BLock Feature Fourteen
+		=====================================================
+		-->
+		<div class="block-feature-fourteen pt-120 xl-pt-100 pb-140 xl-pb-100 mt-170 xl-mt-120">
+			<div class="container container-large">
+				<div class="title-one text-center wow fadeInUp">
+					<h3 class="text-white">Why Choose Us</h3>
+					<p class="fs-24 mt-xs text-white">Your leading real estate advocate, transforming houses into dreams. </p>
+				</div>
+				<!-- /.title-one -->
+
+				<div class="card-bg-wrapper wow fadeInUp mt-70 lg-mt-50">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="card-style-eight mt-45 wow fadeInUp">
+								<div class="d-flex align-items-start pe-xxl-5">
+									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_40.svg" alt="" class="lazy-img icon">
+									<div class="text">
+										<h5 class="text-white">Property Insurance</h5>
+										<p>Elit esse cillum dol fug nulla tur nos ullamo.</p>
+									</div>
+								</div>
+							</div>
+							<!-- /.card-style-eight -->
+						</div>
+						<div class="col-lg-4">
+							<div class="card-style-eight mt-45 wow fadeInUp">
+								<div class="d-flex align-items-start pe-xxl-2 ps-xxl-2">
+									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_41.svg" alt="" class="lazy-img icon">
+									<div class="text">
+										<h5 class="text-white">Easy Payments</h5>
+										<p>quis nostrud exerct ulla security finibus ne derived.</p>
+									</div>
+								</div>
+							</div>
+							<!-- /.card-style-eight -->
+						</div>
+						<div class="col-lg-4">
+							<div class="card-style-eight mt-45 wow fadeInUp">
+								<div class="d-flex align-items-start ps-xxl-5">
+									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_42.svg" alt="" class="lazy-img icon">
+									<div class="text">
+										<h5 class="text-white">Quick Process</h5>
+										<p>Duis aute irure do reprehe de Cicero's voluptat velit.</p>
+									</div>
+								</div>
+							</div>
+							<!-- /.card-style-eight -->
+						</div>
+					</div>
+				</div>
+				<!-- /.card-bg-wrapper -->
+			</div>
+		</div>
+		<!-- /.block-feature-fourteen -->
+
+
+
+		<!-- 
+		=============================================
+			Category Section Two
+		============================================== 
+		-->
+		<div class="category-section-two mt-170 xl-mt-120">
+			<div class="container container-large">
+                <div class="position-relative">
+                    <div class="title-one text-center text-lg-start mb-60 xl-mb-40 lg-mb-20 wow fadeInUp">
+						<h3>Popular Categories.</h3>
+					</div>
+					<!-- /.title-one -->
+                    
+					<div class="wrapper flex-wrap d-flex justify-content-center justify-content-md-between align-items-center">
+						<div class="card-style-seven position-relative z-1 rounded-circle overflow-hidden d-flex align-items-center justify-content-center wow fadeInUp" style="background-image: url({{asset('assets')}}/images/media/img_38.jpg);">
+							<a href="listing_03.html" class="title stretched-link"><h4 class="text-white tran3s">Properties</h4></a>
+						</div>
+						<!-- /.card-style-seven -->
+						<div class="card-style-seven position-relative z-1 rounded-circle overflow-hidden d-flex align-items-center justify-content-center wow fadeInUp" style="background-image: url({{asset('assets')}}/images/media/img_39.jpg);" data-wow-delay="0.1s">
+							<a href="listing_03.html" class="title stretched-link"><h4 class="text-white tran3s">HMOs</h4></a>
+						</div>
+						<!-- /.card-style-seven -->
+						<div class="card-style-seven position-relative z-1 rounded-circle overflow-hidden d-flex align-items-center justify-content-center wow fadeInUp" style="background-image: url({{asset('assets')}}/images/media/img_40.jpg);" data-wow-delay="0.2s">
+							<a href="listing_03.html" class="title stretched-link"><h4 class="text-white tran3s">Consultaion</h4></a>
+						</div>
+						<!-- /.card-style-seven -->
+					</div>
+                    {{-- <div class="section-btn text-center md-mt-60">
+                        <a href="listing_02.html" class="btn-eleven"><span>See all categories</span> <i class="bi bi-chevron-right"></i></a>
+                    </div> --}}
+                    <!-- /.section-btn -->
                 </div>
             </div>
-        </div>
-        <!-- End feature -->
-        <div class="container">
-            <div class="hot-tags pt-30 pb-30 font-small align-self-center">
-                <div class="widget-header-3">
-                    <div class="row align-self-center">
-                        <div class="col-md-4 align-self-center">
-                            <h5 class="widget-title">Featured posts</h5>
-                        </div>
+		</div>
+		<!-- /.category-section-two -->
 
-                    </div>
-                </div>
-            </div>
-            <div class="loop-grid mb-30">
-                <div class="row">
-                    @foreach($featured as $row)
-                    <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
-                        <div class="post-card-1 border-radius-10 hover-up">
-                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url({{asset($row->post_image)}})">
-                                <a class="img-link" href="{{route('post.single', $row)}}"></a>
-                                <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
-                            </div>
-                            <div class="post-content p-30">
-                                <div class="entry-meta meta-0 font-small mb-10">
-                                    <span class="post-cat text-info">{{$row->category->name}}</span>
-                                </div>
-                                <div class="d-flex post-card-content">
-                                    <h5 class="post-title mb-20 font-weight-900">
-                                        <a href="{{route('post.single', $row)}}">{{$row->title}}</a>
-                                    </h5>
-                                    <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                        <span class="post-on">{{ $row->created_at->diffForHumans() }}</span>
-                                        <span class="post-by has-dot">{{$row->comments_count}} Comments</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <div class="bg-grey pt-50 pb-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="post-module-3">
-                            <div class="widget-header-1 position-relative mb-30">
-                                <h5 class="mt-5 mb-30">Latest posts</h5>
-                            </div>
-                            <div class="loop-list loop-list-style-1">
-                                @foreach($latest as $row)
-                                <article class="hover-up-2 transition-normal wow fadeInUp animated">
-                                    <div class="row mb-40 list-style-2">
-                                        <div class="col-md-4">
-                                            <div class="post-thumb position-relative border-radius-5">
-                                                <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url({{asset($row->post_image)}})">
-                                                    <a class="img-link" href="{{route('post.single', $row)}}"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8 align-self-center">
-                                            <div class="post-content">
-                                                <div class="entry-meta meta-0 font-small mb-10">
-                                                    <span class="post-cat text-primary">{{$row->category->name}}</span>
-                                                </div>
-                                                <h5 class="post-title font-weight-900 mb-20">
-                                                    <a href="{{route('post.single', $row)}}">{{$row->title}}</a>
-                                                    <span class="post-format-icon"><i class="elegant-icon icon_star_alt"></i></span>
-                                                </h5>
-                                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">{{ $row->created_at->diffForHumans() }}</span>
-                                                    <span class="post-by has-dot">{{$row->comments_count}} Comments</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                                @endforeach
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="widget-area">
-                            <div class="sidebar-widget widget-about mb-50 pt-30 pr-30 pb-30 pl-30 bg-white border-radius-5 has-border  wow fadeInUp animated">
-                                <img class="about-author-img mb-25" src="{{asset($admin->image)}}" alt="">
-                                <h5 class="mb-20">{{$admin->name}}</h5>
-                                <p class="font-medium text-muted">{{$admin->description}}</p>
-                                <strong>Follow me: </strong>
-                                <ul class="header-social-network d-inline-block list-inline color-white mb-20">
-                                    @foreach($socials as $row)
-                                        <li class="list-inline-item"><a class="pt" href="{{$row->social_link}}" target="_blank" title="Facebook"><i class="{{$row->social_icon}}"></i></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
 
-                            <div class="sidebar-widget widget-latest-posts mb-50 wow fadeInUp animated">
-                                <div class="widget-header-1 position-relative mb-30">
-                                    <h5 class="mt-5 mb-30">Most popular</h5>
-                                </div>
-                                <div class="post-block-list post-module-1">
-                                    <ul class="list-post">
-                                        @foreach($last as $row)
-                                        <li class="mb-30 wow fadeInUp animated">
-                                            <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
-                                                <div class="post-content media-body">
-                                                    <h6 class="post-title mb-15 text-limit-2-row font-medium"><a href="{{route('post.single', $row)}}">{{$row->title}}</a></h6>
-                                                    <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                        <span class="post-on">{{ $row->created_at->diffForHumans() }}</span>
-                                                        <span class="post-by has-dot">{{$row->comments_count}} Comments</span>
-                                                    </div>
-                                                </div>
-                                                <div class="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                                                    <a class="color-white" href="{{route('post.single', $row)}}">
-                                                        <img src="{{asset($row->post_image)}}" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+
+
+		<!--
+		=====================================================
+			BLock Feature Four
+		=====================================================
+		-->
+		<div class="block-feature-four mt-170 xl-mt-130 md-mt-40">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 d-flex order-lg-last">
+						<div class="ps-xxl-5 ms-xl-4 pt-100 xl-pt-80 pb-45 w-100 h-100 wow fadeInRight">
+							<div class="title-one mb-60 lg-mb-40">
+								<h3>Get quick <span>estimate<img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/shape/title_shape_06.svg" alt="" class="lazy-img"></span> on your home.</h3>
+								<p class="fs-24 color-dark">Master your property's valuation for a poised entry into the real estate market, armed with self-assurance and insight.</p>
+							</div>
+							<!-- /.title-one -->
+							<form action="#" class="me-xl-4">
+								<input type="email" placeholder="Your Email Address...">
+								<button>Find out</button>
+							</form>
+							<div class="fs-16 mt-10 opacity-75">*For accurate info please <a href="contact.html" class="fst-italic color-dark text-decoration-underline">contact us.</a></div>
+						</div>
+					</div>
+					<div class="col-lg-6 d-flex">
+						<div class="img-gallery position-relative z-1 w-100 h-100 me-lg-5 wow fadeInLeft">
+							<div class="img-bg" style="background-image: url({{asset('assets')}}/images/media/img_11.jpg);"></div>
+							<div class="card-one">
+								<div class="text text-center z-1">
+									{{-- <h6>Your estimate is in!</h6>
+									<h3>$378,30.00</h3> --}}
+								</div>
+								<img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/assets/screen_12.png" alt="" class="lazy-img w-100">
+							</div>
+						</div>
+						<!-- /.img-gallery -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.block-feature-four -->
+
+
+
+		<!--
+		=====================================================
+			Feedback Section Six
+		=====================================================
+		-->
+		<div class="feedback-section-six bg-pink-two position-relative z-1 mt-170 xl-mt-120 pt-110 xl-pt-80 pb-120 xl-pb-80">
+			<div class="container container-large">
+				<div class="title-one text-center mb-80 xl-mb-50 md-mb-30">
+					<h3>Client Feedback</h3>
+					<p class="fs-20 mt-xs">Client satisfaction speaks louder than our words. Hear from them.</p>
+				</div>
+				<!-- /.title-one -->
+			</div>
+			<div class="slider-left">
+				<div class="feedback-slider-four">
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>The experience of my space transformation is forever fresh, I wake up daily in my space forever thankful that I engaged Hamuj for the space design and finishing.</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Evelyn Edumoh, <span class="fw-normal opacity-50">COO ARKLAND PROPERTIES</span></h6>
+								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>Honestly, Hamuj Homes is a game-changer! Their innovative vision, meticulous attention to detail, and exceptional professionalism resulted in a truly breathtaking space. Highly recommended for outstanding quality and service!.</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Ismahil Omolara <span class="fw-normal opacity-50"></span></h6>
+								<img src="{{asset('assets')}}/images/media/img_01.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>I had the best experience with Hamuj homes, they transformed my space into a cozy haven! Their attention to detail is impeccable, and the final result exceeded my expectations.</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Mary Onuche, <span class="fw-normal opacity-50"></span></h6>
+								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>From start to finish of the redesign of my home Hamuj team exhibited professionalism, creativity, and an impeccable attention to detail that truly brought my vision to life. I am beyond impressed, and I couldn't be happier with the outcome. You rock!</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Mayowa Lamusa, <span class="fw-normal opacity-50"></span></h6>
+								<img src="{{asset('assets')}}/images/media/img_03.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+				</div>
+			</div>
+
+			<div class="slider-right mt-50">
+				<div class="feedback-slider-four">
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>Hamuj understood us and gave us our dream home. The journey with them has been an amazing and smooth one for sure.</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Abiola Latifat <span class="fw-normal opacity-50"></span></h6>
+								<img src="{{asset('assets')}}/images/media/img_01.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>Found our dream home. Great Business with them.</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Jannat Ferdu, <span class="fw-normal opacity-50">Claifornia</span></h6>
+								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>Efficient and friendly service, guided us perfectly Satisfied</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Jubayer Hasan, <span class="fw-normal opacity-50">Claifornia</span></h6>
+								<img src="{{asset('assets')}}/images/media/img_03.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+					<div class="item">
+						<div class="feedback-block-six rounded-4">
+							<div class="d-flex justify-content-between align-items-center">
+								<ul class="rating style-none d-flex">
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+									<li><i class="fa-sharp fa-solid fa-star"></i></li>
+								</ul>
+								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+							</div>
+							<blockquote>Found our dream home. Great Business with them.</blockquote>
+							<div class="d-flex align-items-center justify-content-between">
+								<h6 class="fs-20 m0">Jannat Ferdu, <span class="fw-normal opacity-50">Claifornia</span></h6>
+								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
+							</div>
+						</div>
+						<!-- /.feedback-block-six -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.feedback-section-six -->
+
+
+		<!--
+		=====================================================
+			Blog Section One
+		=====================================================
+		-->
+		<div class="blog-section-one mt-150 xl-mt-120">
+			<div class="container">
+				<div class="position-relative">
+					<div class="title-one mb-35 xl-mb-20 md-mb-10 wow fadeInUp">
+						<h3>Latest <span>News <img src="{{asset('assets')}}/images/lazy.svg" data-src="images/shape/title_shape_01.svg" alt="" class="lazy-img"></span></h3>
+						<p class="fs-20 mt-xs">Get the latest update, trips & tricks from our expert.</p>
+					</div>
+					<!-- /.title-one -->
+
+					<div class="row gx-xl-5">
+						<div class="col-md-4">
+							<article class="blog-meta-one mt-35 wow fadeInUp">
+								<figure class="post-img position-relative rounded-5 m0" style="background-image: url({{asset('assets')}}/images/blog/blog_img_01.jpg);">
+									<a href="blog_details.html" class="stretched-link date rounded-5 tran3s">09 FEB</a>
+								</figure>
+								<div class="post-data">
+									<div class="post-info"><a href="blog_details.html">Rashed Ka .</a> 6 min</div>
+									<div class="d-flex justify-content-between align-items-sm-center flex-wrap">
+										<a href="blog_details.html" class="blog-title"><h4>Spending Habits, 13 Tips for grow Your Money.</h4></a>
+										<a href="blog_details.html" class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+								</div>
+							</article>
+							<!-- /.blog-meta-one -->
+						</div>
+						<div class="col-md-4">
+							<article class="blog-meta-one mt-35 wow fadeInUp" data-wow-delay="0.1s">
+								<figure class="post-img position-relative rounded-5 m0" style="background-image: url({{asset('assets')}}/images/blog/blog_img_02.jpg);">
+									<a href="blog_details.html" class="stretched-link date rounded-5 tran3s">12 aug</a>
+								</figure>
+								<div class="post-data">
+									<div class="post-info"><a href="blog_details.html">Jubayer Hasan .</a> 7 min</div>
+									<div class="d-flex justify-content-between align-items-sm-center flex-wrap">
+										<a href="blog_details.html" class="blog-title"><h4>Designer’s Checklist for Every UX/UI Project.</h4></a>
+										<a href="blog_details.html" class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+								</div>
+							</article>
+							<!-- /.blog-meta-one -->
+						</div>  
+                        <div class="col-md-4">
+							<article class="blog-meta-one mt-35 wow fadeInUp">
+								<figure class="post-img position-relative rounded-5 m0" style="background-image: url({{asset('assets')}}/images/blog/blog_img_01.jpg);">
+									<a href="blog_details.html" class="stretched-link date rounded-5 tran3s">09 FEB</a>
+								</figure>
+								<div class="post-data">
+									<div class="post-info"><a href="blog_details.html">Rashed Ka .</a> 6 min</div>
+									<div class="d-flex justify-content-between align-items-sm-center flex-wrap">
+										<a href="blog_details.html" class="blog-title"><h4>Spending Habits, 13 Tips for grow Your Money.</h4></a>
+										<a href="blog_details.html" class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle"><i class="bi bi-arrow-up-right"></i></a>
+									</div>
+									
+								</div>
+							</article>
+							<!-- /.blog-meta-one -->
+						</div>
+					</div>
+
+					<div class="section-btn text-center md-mt-60">
+						<a href="blog_03.html" class="btn-eight rounded-3"><span>Explore All</span> <i class="bi bi-arrow-up-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.blog-section-one -->
+
+
+
+		<!--
+		=====================================================
+			Fancy Banner Five
+		=====================================================
+		-->
+		<div class="fancy-banner-five position-relative z-1 pt-90 lg-pt-70 pb-110 lg-pb-70 mt-170 xl-mt-120">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-8 m-auto text-center">
+						<div class="title-one mb-40 lg-mb-20">
+							<h2 class="font-garamond fs-xl text-white">Any Inquiry? Feel free To contact Us.</h2>
+						</div>
+						<a href="contact.html" class="btn-nine text-uppercase"><span>SEND MESSAGE</span></a>
+					</div>
+				</div>
+			</div>
+			<img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/shape/shape_30.svg" alt="" class="lazy-img shapes shape_01">
+		</div>
+		<!-- /.fancy-banner-five -->
+
 @endsection

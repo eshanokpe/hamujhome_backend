@@ -23,7 +23,7 @@ class Post extends Model
         'post_status',
         'post_type',
         'post_image',
-        'post_video', 
+        'post_video',  
         'video_url',  // Add this
         'video_thumbnail', // Add this if you want thumbnails
         'meta_title',      // Add this
@@ -42,8 +42,13 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function comments(){
-        return $this->hasMany(Comment::class);
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id')->latest();
+    }
+    public function allComments()
+    {
+        return $this->hasMany(Comment::class)->latest();
     }
     public function image(){
         return $this->morphOne(Image::class, 'imageable');

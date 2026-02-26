@@ -22,7 +22,7 @@ class PostController extends Controller
         $tags = Tag::latest()->take(15)->get();
         $person = Admin::find(1);
 
-        return view('frontEnd.blog.details',[
+        return view('homePage.blog.details',[ 
             'post' => $blog,
             'recent_posts' => $recent_posts,
             'cates' => $categories,
@@ -47,5 +47,25 @@ class PostController extends Controller
        // $comment = $post->comments()->create($attributes);
 
         return redirect()->back()->with('success', 'Thanks for your Comment');
+    }
+
+    /**
+     * Store a new comment
+     */
+    public function storeComment(Request $request, Post $post)
+    {
+        $request->validate([
+            'content' => 'required|min:3',
+            'parent_id' => 'nullable|exists:comments,id'
+        ]);
+
+        $comment = $post->comments()->create([
+            'user_id' => auth()->id(),
+            'content' => $request->content,
+            'parent_id' => $request->parent_id,
+            'approved' => true // or false if you need moderation
+        ]);
+
+        return back()->with('success', 'Thanks for your Comment');
     }
 }
