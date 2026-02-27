@@ -6,7 +6,7 @@ use App\Models\Page;
 use App\Models\Social;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
-use App\Models\Category;
+use App\Models\Category; 
 use Illuminate\Support\Facades\View;
 use App\Models\Setting;
 use App\Models\Admin;
