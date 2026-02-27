@@ -38,11 +38,24 @@
                                 <div class="post-video-container mb-40">
                                     @if($post->post_video)
                                         <!-- Local Uploaded Video -->
+                                        @php
+                                            $videoPath = asset($post->post_video);
+                                            $extension = strtolower(pathinfo($post->post_video, PATHINFO_EXTENSION));
+                                            $videoType = $extension == 'mov' ? 'video/quicktime' : 'video/mp4';
+                                        @endphp
                                         <div class="video-wrapper position-relative">
                                             <video id="blogVideo" controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset($post->video_thumbnail) : '' }}">
-                                                <source src="{{ asset($post->post_video) }}" type="video/mp4">
-                                                    
-                                                Your browser does not support the video tag.
+                                                <source src="{{ $videoPath }}" type="{{ $videoType }}">
+                                                <!-- Add more source formats for better compatibility -->
+                                                <source src="{{ $videoPath }}" type="video/mp4">
+                                                <source src="{{ $videoPath }}" type="video/quicktime">
+                                                <source src="{{ $videoPath }}" type="video/x-m4v">
+                                                <source src="{{ $videoPath }}" type="video/mov">
+                                                <source src="{{ $videoPath }}" type="video/avi">
+                                                <p>
+                                                    Your browser doesn't support HTML5 video. 
+                                                    <a href="{{ $videoPath }}">Download</a> the video instead.
+                                                </p>
                                             </video>
                                             @if(!$post->video_thumbnail)
                                                 <div class="video-overlay-icon">
@@ -93,10 +106,22 @@
                                             @endif
                                         @else
                                             <!-- Direct Video File URL -->
+                                            @php
+                                                $extension = strtolower(pathinfo($videoUrl, PATHINFO_EXTENSION));
+                                                $videoType = $extension == 'mov' ? 'video/quicktime' : 'video/mp4';
+                                            @endphp
                                             <div class="video-wrapper position-relative">
                                                 <video controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset($post->video_thumbnail) : '' }}">
+                                                    <source src="{{ $videoUrl }}" type="{{ $videoType }}">
                                                     <source src="{{ $videoUrl }}" type="video/mp4">
-                                                    Your browser does not support the video tag.
+                                                    <source src="{{ $videoUrl }}" type="video/quicktime">
+                                                    <source src="{{ $videoUrl }}" type="video/x-m4v">
+                                                    <source src="{{ $videoUrl }}" type="video/mov">
+                                                    <source src="{{ $videoUrl }}" type="video/avi">
+                                                    <p>
+                                                        Your browser doesn't support HTML5 video. 
+                                                        <a href="{{ $videoUrl }}">Download</a> the video instead.
+                                                    </p>
                                                 </video>
                                             </div>
                                         @endif
@@ -479,6 +504,26 @@
             }, { threshold: 0.5 });
             
             observer.observe(video);
+        }
+    });
+
+    // Check video support and show download link if needed
+    document.addEventListener("DOMContentLoaded", function() {
+        const video = document.getElementById('blogVideo');
+        if (video) {
+            video.addEventListener('error', function(e) {
+                console.log('Video error:', e);
+                // Create download link if video fails to play
+                const sources = video.getElementsByTagName('source');
+                if (sources.length > 0) {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = sources[0].src;
+                    downloadLink.className = 'btn-five mt-3';
+                    downloadLink.innerHTML = '<i class="fa-sharp fa-solid fa-download me-2"></i>Download Video';
+                    downloadLink.download = '';
+                    video.parentNode.appendChild(downloadLink);
+                }
+            });
         }
     });
 </script>
