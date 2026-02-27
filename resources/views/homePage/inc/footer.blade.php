@@ -24,18 +24,19 @@
                         <img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/shape/shape_52.svg" alt="" class="lazy-img ms-auto d-none d-xl-block">
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-30">
+                <div class="col-lg-3 col-md-6 mb-30">
                     <div class="footer-nav">
                         <h5 class="footer-title">Links</h5>
                         <ul class="footer-nav-link style-none">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="dashboard/membership.html" target="_blank">Membership</a></li>
-                            <li><a href="about_us_01.html">About Company</a></li>
-                            <li><a href="blog_01.html">Blog</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
+                            <li><a href="{{route('home.about')}}" target="_blank">About us</a></li>
+                            <li><a href="{{route('home.shop')}}">Shop</a></li>
+                            <li><a href="{{route('home.services')}}">Services</a></li>
+                            <li><a href="{{route('home.blog')}}">Blog</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-6 mb-30">
+                {{-- <div class="col-xl-2 col-lg-3 col-md-6 mb-30">
                     <div class="footer-nav">
                         <h5 class="footer-title">New Listing</h5>
                         <ul class="footer-nav-link style-none">
@@ -47,15 +48,15 @@
                             <li><a href="listing_06.html">Rent Office</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-6 mb-30">
+                </div> --}}
+                <div class="col-xl-3 col-lg-3 col-md-6 mb-30">
                     <div class="footer-nav">
                         <h5 class="footer-title">Legal</h5>
                         <ul class="footer-nav-link style-none">
-                            <li><a href="faq.html">Terms & conditions</a></li>
-                            <li><a href="faq.html">Cookie</a></li>
-                            <li><a href="faq.html">Privacy policy</a></li>
-                            <li><a href="faq.html">Faq’s</a></li>
+                            <li><a href="#">Terms & conditions</a></li>
+                            <li><a href="#">Cookie</a></li>
+                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="#">Faq’s</a></li>
                         </ul>
                     </div>
                 </div>
