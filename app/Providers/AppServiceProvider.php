@@ -31,40 +31,40 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::useBootstrap();
+        // Paginator::useBootstrap();
 
-        $categories = Category::latest()->take(7)->get();
-        View::share('categories', $categories);
+        // $categories = Category::latest()->take(7)->get();
+        // View::share('categories', $categories);
 
-        $allcategory = Category::all();
-        View::share('allcategory', $allcategory);
+        // $allcategory = Category::all();
+        // View::share('allcategory', $allcategory);
 
-        $website = Setting::find(1);
-        View::share('website', $website);
+        // $website = Setting::find(1);
+        // View::share('website', $website);
 
-        $admin = Admin::find(1);
-        View::share('admin', $admin);
+        // $admin = Admin::find(1);
+        // View::share('admin', $admin);
 
-        $pages = Page::all();
-        View::share('pages',$pages);
+        // $pages = Page::all();
+        // View::share('pages',$pages);
 
-        $socials = Social::all();
-        View::share('socials',$socials);
+        // $socials = Social::all();
+        // View::share('socials',$socials);
 
         // Helper function for post image
-        view()->composer('*', function ($view) {
-            $view->with('getPostImage', function ($post) {
-                if (!empty($post->post_image)) {
-                    return asset($post->post_image);
-                } elseif (!empty($post->post_video) || !empty($post->video_thumbnail)) {
-                    // If it's a video post, you might want a video thumbnail
-                    return asset('assets/images/blog/video-placeholder.jpg');
-                } else {
-                    // Default placeholder
-                    return asset('assets/images/blog/default-blog.jpg');
-                }
-            });
-        });
+        // view()->composer('*', function ($view) {
+        //     $view->with('getPostImage', function ($post) {
+        //         if (!empty($post->post_image)) {
+        //             return asset($post->post_image);
+        //         } elseif (!empty($post->post_video) || !empty($post->video_thumbnail)) {
+        //             // If it's a video post, you might want a video thumbnail
+        //             return asset('assets/images/blog/video-placeholder.jpg');
+        //         } else {
+        //             // Default placeholder
+        //             return asset('assets/images/blog/default-blog.jpg');
+        //         }
+        //     });
+        // });
 
 
 
