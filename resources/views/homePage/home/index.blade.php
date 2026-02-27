@@ -666,7 +666,6 @@
 		</div>
 	</div>
 
-
 	<!-- Required CSS -->
 	<style>
 		/* Video Play Button Styles */
@@ -800,6 +799,13 @@
 			color: #fff;
 		}
 
+		/* Video player styles */
+		video {
+			background: #000;
+			max-height: 70vh;
+			width: 100%;
+		}
+		
 		/* Responsive */
 		@media (max-width: 768px) {
 			.post-img {
@@ -811,7 +817,6 @@
 			}
 		}
 	</style>
-
 
 
 		<!--
@@ -835,3 +840,37 @@
 		<!-- /.fancy-banner-five -->
 
 @endsection
+@push('scripts')
+<script>
+// Handle video playback for different formats
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if video can play .mov files
+    var video = document.createElement('video');
+    var canPlayMOV = video.canPlayType('video/quicktime') !== '';
+    
+    if (!canPlayMOV) {
+        console.log('Browser may have limited .mov support');
+    }
+    
+    // Fix for iOS .mov playback
+    var videos = document.querySelectorAll('video');
+    videos.forEach(function(video) {
+        video.addEventListener('error', function(e) {
+            console.log('Video error, trying fallback format');
+            var sources = video.querySelectorAll('source');
+            if (sources.length > 1) {
+                // Try next source format
+                for (var i = 1; i < sources.length; i++) {
+                    if (sources[i].src) {
+                        video.src = sources[i].src;
+                        video.load();
+                        video.play();
+                        break;
+                    }
+                }
+            }
+        });
+    });
+});
+</script>
+@endpush

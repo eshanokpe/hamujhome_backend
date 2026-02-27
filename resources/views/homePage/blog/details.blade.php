@@ -41,6 +41,7 @@
                                         <div class="video-wrapper position-relative">
                                             <video id="blogVideo" controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset($post->video_thumbnail) : '' }}">
                                                 <source src="{{ asset($post->post_video) }}" type="video/mp4">
+                                                    
                                                 Your browser does not support the video tag.
                                             </video>
                                             @if(!$post->video_thumbnail)
