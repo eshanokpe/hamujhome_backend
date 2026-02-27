@@ -146,7 +146,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
-                                                    <a class="color-white" href="{{route('post.single', $row)}}">
+                                                    <a class="color-white" href="{{route('post.single', $row)}}"> 
                                                         <img src="{{asset($row->post_image)}}" alt="">
                                                     </a>
                                                 </div>

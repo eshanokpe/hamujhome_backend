@@ -17,6 +17,9 @@
                             <div class="post-info">
                                 <a href="{{ route('author.posts', $post->author->username ?? '') }}">{{ $post->author->name ?? 'Admin' }}</a> . 
                                 {{ $post->created_at->diffForHumans() }}
+                                @if($post->post_video || $post->video_url)
+                                    <span class="video-badge"><i class="fa-sharp fa-solid fa-play me-1"></i> Video</span>
+                                @endif
                             </div>
                             <h3 class="blog-title">{{ $post->title }}</h3>
                         </div>
@@ -27,50 +30,84 @@
                         <article class="blog-post-meta">
                             @if($post->post_image)
                                 <!-- Image Post -->
-                                <figure class="post-img position-relative m0" style="background-image: url({{ asset('storage/'.$post->post_image) }});">
+                                <figure class="post-img position-relative m0" style="background-image: url({{ asset($post->post_image) }});">
                                     <div class="fw-500 date d-inline-block">{{ $post->created_at->format('d M') }}</div>
                                 </figure>
                             @elseif($post->post_video || $post->video_url)
                                 <!-- Video Post -->
                                 <div class="post-video-container mb-40">
-                                    @if($post->video_url)
-                                        @if(strpos($post->video_url, 'youtube') !== false || strpos($post->video_url, 'youtu.be') !== false)
+                                    @if($post->post_video)
+                                        <!-- Local Uploaded Video -->
+                                        <div class="video-wrapper position-relative">
+                                            <video id="blogVideo" controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset('storage/'.$post->video_thumbnail) : '' }}">
+                                                <source src="{{ asset('storage/'.$post->post_video) }}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            @if(!$post->video_thumbnail)
+                                                <div class="video-overlay-icon">
+                                                    <i class="fa-sharp fa-solid fa-circle-play"></i>
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @elseif($post->video_url)
+                                        <!-- URL Video (YouTube/Vimeo/Direct) -->
+                                        @php
+                                            $videoUrl = $post->video_url;
+                                            $isYouTube = strpos($videoUrl, 'youtube.com') !== false || strpos($videoUrl, 'youtu.be') !== false;
+                                            $isVimeo = strpos($videoUrl, 'vimeo.com') !== false;
+                                        @endphp
+                                        
+                                        @if($isYouTube)
                                             <!-- YouTube Video -->
                                             @php
-                                                preg_match('/(youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/', $post->video_url, $matches);
+                                                preg_match('/(youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/', $videoUrl, $matches);
                                                 $videoId = $matches[2] ?? '';
                                             @endphp
                                             @if($videoId)
                                                 <div class="video-wrapper">
-                                                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/{{ $videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    <iframe width="100%" height="450" 
+                                                            src="https://www.youtube.com/embed/{{ $videoId }}" 
+                                                            frameborder="0" 
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                            allowfullscreen>
+                                                    </iframe>
                                                 </div>
                                             @endif
-                                        @elseif(strpos($post->video_url, 'vimeo') !== false)
+                                        @elseif($isVimeo)
                                             <!-- Vimeo Video -->
                                             @php
-                                                preg_match('/vimeo\.com\/(\d+)/', $post->video_url, $matches);
+                                                preg_match('/vimeo\.com\/(\d+)/', $videoUrl, $matches);
                                                 $videoId = $matches[1] ?? '';
                                             @endphp
                                             @if($videoId)
                                                 <div class="video-wrapper">
-                                                    <iframe src="https://player.vimeo.com/video/{{ $videoId }}" width="100%" height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                                                    <iframe src="https://player.vimeo.com/video/{{ $videoId }}" 
+                                                            width="100%" 
+                                                            height="450" 
+                                                            frameborder="0" 
+                                                            allow="autoplay; fullscreen; picture-in-picture" 
+                                                            allowfullscreen>
+                                                    </iframe>
                                                 </div>
                                             @endif
                                         @else
-                                            <!-- Direct Video File -->
-                                            <video controls width="100%" height="auto" poster="{{ $post->video_thumbnail ? asset('storage/'.$post->video_thumbnail) : '' }}">
-                                                <source src="{{ asset('storage/'.$post->video_url) }}" type="video/mp4">
-                                                Your browser does not support the video tag.
-                                            </video>
+                                            <!-- Direct Video File URL -->
+                                            <div class="video-wrapper position-relative">
+                                                <video controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset('storage/'.$post->video_thumbnail) : '' }}">
+                                                    <source src="{{ $videoUrl }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </div>
                                         @endif
-                                    @elseif($post->post_video)
-                                        <!-- Local Video File -->
-                                        <video controls width="100%" height="auto" poster="{{ $post->video_thumbnail ? asset('storage/'.$post->video_thumbnail) : '' }}">
-                                            <source src="{{ asset('storage/'.$post->post_video) }}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
                                     @endif
                                 </div>
+                                
+                                <!-- Video Description if available -->
+                                @if($post->excerpt)
+                                    <div class="video-description mb-30">
+                                        <p class="text-muted"><i class="fa-regular fa-circle-play me-2"></i> {{ $post->excerpt }}</p>
+                                    </div>
+                                @endif
                             @else
                                 <!-- Default Placeholder -->
                                 <figure class="post-img position-relative m0" style="background-image: url({{ asset('assets/images/blog/blog_img_11.jpg') }});">
@@ -92,10 +129,10 @@
                                 </ul>
                                 <ul class="d-flex share-icon align-items-center style-none pt-20">
                                     <li>Share:</li>
-                                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-viber"></i></a></li>
+                                    <li><a href="https://wa.me/?text={{ urlencode($post->title) }}%20{{ url()->current() }}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                    <li><a href="https://twitter.com/intent/tweet?text={{ urlencode($post->title) }}&url={{ url()->current() }}" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}&title={{ urlencode($post->title) }}" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
                             @endif
@@ -195,11 +232,19 @@
                                                  data-src="{{ asset('storage/'.$recent->post_image) }}" 
                                                  alt="" 
                                                  class="lazy-img">
+                                        @elseif($recent->video_thumbnail)
+                                            <img src="{{ asset('assets/images/lazy.svg') }}" 
+                                                 data-src="{{ asset('storage/'.$recent->video_thumbnail) }}" 
+                                                 alt="" 
+                                                 class="lazy-img">
                                         @else
                                             <img src="{{ asset('assets/images/lazy.svg') }}" 
                                                  data-src="{{ asset('assets/images/blog/blog_img_08.jpg') }}" 
                                                  alt="" 
                                                  class="lazy-img">
+                                        @endif
+                                        @if($recent->post_video || $recent->video_url)
+                                            <span class="small-video-icon"><i class="fa-sharp fa-solid fa-play"></i></span>
                                         @endif
                                     </div>
                                     <div class="post ps-4">
@@ -262,6 +307,130 @@
 
 @endsection
 
+@push('styles')
+<style>
+    /* Video Badge */
+    .video-badge {
+        display: inline-block;
+        background: #ff4a17;
+        color: white;
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        border-radius: 15px;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+    
+    /* Video Wrapper */
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #000;
+    }
+    
+    .video-wrapper video,
+    .video-wrapper iframe {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 450px;
+        object-fit: cover;
+    }
+    
+    /* Video Overlay Icon */
+    .video-overlay-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 80px;
+        pointer-events: none;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    /* Small Video Icon for Recent Posts */
+    .small-video-icon {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background: rgba(255, 74, 23, 0.9);
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+    }
+    
+    /* Post Image */
+    .post-img {
+        height: 450px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    /* Date Badge */
+    .date {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: white;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-weight: 600;
+        color: #333;
+    }
+    
+    /* Video Description */
+    .video-description {
+        background: #f8f9fa;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border-left: 4px solid #ff4a17;
+    }
+    
+    /* Recent News Block */
+    .news-block {
+        position: relative;
+    }
+    
+    .news-block > div:first-child {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+    }
+    
+    .news-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .post-img,
+        .video-wrapper video,
+        .video-wrapper iframe {
+            height: 300px;
+            min-height: 300px;
+        }
+        
+        .video-overlay-icon {
+            font-size: 50px;
+        }
+    }
+</style>
+@endpush
+
 @push('scripts')
 <script>
     // Lazy load images
@@ -291,5 +460,25 @@
         document.getElementById('parent_id').value = commentId;
         document.querySelector('textarea[name="content"]').focus();
     }
+    
+    // Auto-play/pause video when in viewport (optional)
+    document.addEventListener("DOMContentLoaded", function() {
+        const video = document.getElementById('blogVideo');
+        if (video) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Video is visible - you could auto-play here if desired
+                        // video.play();
+                    } else {
+                        // Video is hidden - pause it
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(video);
+        }
+    });
 </script>
 @endpush

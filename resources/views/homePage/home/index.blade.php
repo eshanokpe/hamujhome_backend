@@ -537,264 +537,269 @@
 
 
 
-		<!--
-		=====================================================
-			Feedback Section Six
-		=====================================================
-		-->
-		<div class="feedback-section-six bg-pink-two position-relative z-1 mt-170 xl-mt-120 pt-110 xl-pt-80 pb-120 xl-pb-80">
-			<div class="container container-large">
-				<div class="title-one text-center mb-80 xl-mb-50 md-mb-30">
-					<h3>Client Feedback</h3>
-					<p class="fs-20 mt-xs">Client satisfaction speaks louder than our words. Hear from them.</p>
-				</div>
-				<!-- /.title-one -->
-			</div>
-			<div class="slider-left">
-				<div class="feedback-slider-four">
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
-							</div>
-							<blockquote>The experience of my space transformation is forever fresh, I wake up daily in my space forever thankful that I engaged Hamuj for the space design and finishing.</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Evelyn Edumoh, <span class="fw-normal opacity-50">COO ARKLAND PROPERTIES</span></h6>
-								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
-							</div>
-						</div>
-						<!-- /.feedback-block-six -->
-					</div>
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
-							</div>
-							<blockquote>Honestly, Hamuj Homes is a game-changer! Their innovative vision, meticulous attention to detail, and exceptional professionalism resulted in a truly breathtaking space. Highly recommended for outstanding quality and service!.</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Ismahil Omolara <span class="fw-normal opacity-50"></span></h6>
-								<img src="{{asset('assets')}}/images/media/img_01.jpg" alt="" class="rounded-circle avatar">
-							</div>
-						</div>
-						<!-- /.feedback-block-six -->
-					</div>
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
-							</div>
-							<blockquote>I had the best experience with Hamuj homes, they transformed my space into a cozy haven! Their attention to detail is impeccable, and the final result exceeded my expectations.</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Mary Onuche, <span class="fw-normal opacity-50"></span></h6>
-								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
-							</div>
-						</div>
-						<!-- /.feedback-block-six -->
-					</div>
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
-							</div>
-							<blockquote>From start to finish of the redesign of my home Hamuj team exhibited professionalism, creativity, and an impeccable attention to detail that truly brought my vision to life. I am beyond impressed, and I couldn't be happier with the outcome. You rock!</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Mayowa Lamusa, <span class="fw-normal opacity-50"></span></h6>
-								<img src="{{asset('assets')}}/images/media/img_03.jpg" alt="" class="rounded-circle avatar">
-							</div>
-						</div>
-						<!-- /.feedback-block-six -->
-					</div>
-				</div>
-			</div>
+		
 
-			<div class="slider-right mt-50">
-				<div class="feedback-slider-four">
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
+	<!--
+    =====================================================
+        Blog Section One - Dynamic with Video Support
+    =====================================================
+	-->
+	<div class="blog-section-one mt-150 xl-mt-120">
+		<div class="container">
+			<div class="position-relative">
+				<!-- Section Title -->
+				<div class="title-one mb-35 xl-mb-20 md-mb-10 wow fadeInUp">
+					<h3>Latest <span>News <img src="{{asset('assets')}}/images/lazy.svg" 
+							data-src="{{asset('assets')}}/images/shape/title_shape_01.svg" 
+							alt="" class="lazy-img"></span>
+					</h3>
+					<p class="fs-20 mt-xs">Get the latest update, trips & tricks from our expert.</p>
+				</div>
+
+				<!-- Blog Posts Grid -->
+				<div class="row gx-xl-5">
+					@forelse($latest as $index => $post)
+					<div class="col-md-4">
+						<article class="blog-meta-one mt-35 wow fadeInUp position-relative" 
+								@if($index > 0) data-wow-delay="{{0.1 * $index}}s" @endif>
+							
+							<!-- Post Image with Video Play Button -->
+							<figure class="post-img position-relative rounded-5 m0" 
+									style="background-image: url('{{ $post->post_image }}');">
+								
+								<!-- Video Play Button (only shows if post has video) -->
+								@if($post->has_video)
+								<a href="javascript:void(0)" 
+								class="video-play-btn position-absolute top-50 start-50 translate-middle rounded-circle bg-white d-flex align-items-center justify-content-center"
+								data-bs-toggle="modal" 
+								data-bs-target="#videoModal{{ $post->id }}"
+								style="width: 60px; height: 60px; z-index: 10; box-shadow: 0 10px 30px rgba(0,0,0,0.2);"
+								onclick="event.preventDefault(); event.stopPropagation();">
+									<i class="fas fa-play" style="color: #000; font-size: 20px; margin-left: 3px;"></i>
+								</a>
+								@endif
+
+								<!-- Post Date -->
+								<a href="{{ route('blog.details', $post->slug) }}" class="stretched-link date rounded-5 tran3s">
+									{{ $post->created_at->format('d M') }}
+								</a>
+							</figure>
+							
+							<!-- Post Content -->
+							<div class="post-data">
+								<div class="post-info">
+									<a href="{{ route('author.posts', $post->author->username ?? '#') }}">
+										{{ $post->author->name ?? 'Unknown' }}
+									</a> 
+									. {{ $post->created_at->diffForHumans() }}
+									
+									@if($post->post_video)
+									<span class="video-label ms-2">
+										<i class="fas fa-video me-1"></i> Video
+									</span>
+									@endif
+								</div>
+								
+								<div class="d-flex justify-content-between align-items-sm-center flex-wrap">
+									<a href="{{ route('blog.details', $post->slug) }}" class="blog-title">
+										<h4>{{ Str::limit($post->title, 50) }}</h4>
+									</a>
+									<a href="{{ route('blog.details', $post->slug) }}" 
+									class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle">
+										<i class="bi bi-arrow-up-right"></i>
+									</a>
+								</div>
 							</div>
-							<blockquote>Hamuj understood us and gave us our dream home. The journey with them has been an amazing and smooth one for sure.</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Abiola Latifat <span class="fw-normal opacity-50"></span></h6>
-								<img src="{{asset('assets')}}/images/media/img_01.jpg" alt="" class="rounded-circle avatar">
+						</article>
+
+						<!-- Video Modal -->
+						@if($post->post_video)
+						<div class="modal fade" id="videoModal{{ $post->id }}" tabindex="-1" 
+							aria-labelledby="videoModalLabel{{ $post->id }}" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered modal-lg">
+								<div class="modal-content bg-transparent border-0">
+									<div class="modal-body p-0 position-relative">
+										<button type="button" 
+												class="btn-close btn-close-white position-absolute top-0 end-0 mt-3 me-3" 
+												data-bs-dismiss="modal" 
+												aria-label="Close">
+										</button>
+										
+										@if($post->post_video)
+											<!-- Local Video -->
+											<video controls class="w-100 rounded-4" style="max-height: 70vh;">
+												<source src="{{ asset($post->post_video) }}" type="video/mp4">
+												Your browser does not support the video tag.
+											</video>
+										@endif
+									</div>
+								</div>
 							</div>
 						</div>
-						<!-- /.feedback-block-six -->
+						@endif
 					</div>
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
-							</div>
-							<blockquote>Found our dream home. Great Business with them.</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Jannat Ferdu, <span class="fw-normal opacity-50">Claifornia</span></h6>
-								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
-							</div>
-						</div>
-						<!-- /.feedback-block-six -->
+					@empty
+					<div class="col-12 text-center py-5">
+						<p class="fs-4">No blog posts found.</p>
 					</div>
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
-							</div>
-							<blockquote>Efficient and friendly service, guided us perfectly Satisfied</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Jubayer Hasan, <span class="fw-normal opacity-50">Claifornia</span></h6>
-								<img src="{{asset('assets')}}/images/media/img_03.jpg" alt="" class="rounded-circle avatar">
-							</div>
-						</div>
-						<!-- /.feedback-block-six -->
-					</div>
-					<div class="item">
-						<div class="feedback-block-six rounded-4">
-							<div class="d-flex justify-content-between align-items-center">
-								<ul class="rating style-none d-flex">
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-									<li><i class="fa-sharp fa-solid fa-star"></i></li>
-								</ul>
-								<img src="{{asset('assets')}}/images/icon/icon_29.svg" alt="" class="icon">
-							</div>
-							<blockquote>Found our dream home. Great Business with them.</blockquote>
-							<div class="d-flex align-items-center justify-content-between">
-								<h6 class="fs-20 m0">Jannat Ferdu, <span class="fw-normal opacity-50">Claifornia</span></h6>
-								<img src="{{asset('assets')}}/images/media/img_02.jpg" alt="" class="rounded-circle avatar">
-							</div>
-						</div>
-						<!-- /.feedback-block-six -->
-					</div>
+					@endforelse
+				</div>
+
+				<!-- Explore All Button -->
+				<div class="section-btn text-center md-mt-60">
+					<a href="{{ route('home.blog') }}" class="btn-eight rounded-3">
+						<span>Explore All</span> 
+						<i class="bi bi-arrow-up-right"></i>
+					</a>
 				</div>
 			</div>
 		</div>
-		<!-- /.feedback-section-six -->
+	</div>
 
+	<!-- Required CSS -->
+	<style>
+		/* Video Play Button Styles */
+		.video-play-btn {
+			transition: all 0.3s ease;
+			cursor: pointer;
+			opacity: 0.9;
+			z-index: 10;
+		}
 
-		<!--
-		=====================================================
-			Blog Section One
-		=====================================================
-		-->
-		<div class="blog-section-one mt-150 xl-mt-120">
-			<div class="container">
-				<div class="position-relative">
-					<div class="title-one mb-35 xl-mb-20 md-mb-10 wow fadeInUp">
-						<h3>Latest <span>News <img src="{{asset('assets')}}/images/lazy.svg" data-src="images/shape/title_shape_01.svg" alt="" class="lazy-img"></span></h3>
-						<p class="fs-20 mt-xs">Get the latest update, trips & tricks from our expert.</p>
-					</div>
-					<!-- /.title-one -->
+		.video-play-btn:hover {
+			transform: translate(-50%, -50%) scale(1.1);
+			opacity: 1;
+			box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+		}
 
-					<div class="row gx-xl-5">
-						<div class="col-md-4">
-							<article class="blog-meta-one mt-35 wow fadeInUp">
-								<figure class="post-img position-relative rounded-5 m0" style="background-image: url({{asset('assets')}}/images/blog/blog_img_01.jpg);">
-									<a href="blog_details.html" class="stretched-link date rounded-5 tran3s">09 FEB</a>
-								</figure>
-								<div class="post-data">
-									<div class="post-info"><a href="blog_details.html">Rashed Ka .</a> 6 min</div>
-									<div class="d-flex justify-content-between align-items-sm-center flex-wrap">
-										<a href="blog_details.html" class="blog-title"><h4>Spending Habits, 13 Tips for grow Your Money.</h4></a>
-										<a href="blog_details.html" class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle"><i class="bi bi-arrow-up-right"></i></a>
-									</div>
-									
-								</div>
-							</article>
-							<!-- /.blog-meta-one -->
-						</div>
-						<div class="col-md-4">
-							<article class="blog-meta-one mt-35 wow fadeInUp" data-wow-delay="0.1s">
-								<figure class="post-img position-relative rounded-5 m0" style="background-image: url({{asset('assets')}}/images/blog/blog_img_02.jpg);">
-									<a href="blog_details.html" class="stretched-link date rounded-5 tran3s">12 aug</a>
-								</figure>
-								<div class="post-data">
-									<div class="post-info"><a href="blog_details.html">Jubayer Hasan .</a> 7 min</div>
-									<div class="d-flex justify-content-between align-items-sm-center flex-wrap">
-										<a href="blog_details.html" class="blog-title"><h4>Designer’s Checklist for Every UX/UI Project.</h4></a>
-										<a href="blog_details.html" class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle"><i class="bi bi-arrow-up-right"></i></a>
-									</div>
-									
-								</div>
-							</article>
-							<!-- /.blog-meta-one -->
-						</div>  
-                        <div class="col-md-4">
-							<article class="blog-meta-one mt-35 wow fadeInUp">
-								<figure class="post-img position-relative rounded-5 m0" style="background-image: url({{asset('assets')}}/images/blog/blog_img_01.jpg);">
-									<a href="blog_details.html" class="stretched-link date rounded-5 tran3s">09 FEB</a>
-								</figure>
-								<div class="post-data">
-									<div class="post-info"><a href="blog_details.html">Rashed Ka .</a> 6 min</div>
-									<div class="d-flex justify-content-between align-items-sm-center flex-wrap">
-										<a href="blog_details.html" class="blog-title"><h4>Spending Habits, 13 Tips for grow Your Money.</h4></a>
-										<a href="blog_details.html" class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle"><i class="bi bi-arrow-up-right"></i></a>
-									</div>
-									
-								</div>
-							</article>
-							<!-- /.blog-meta-one -->
-						</div>
-					</div>
+		.post-img {
+			position: relative;
+			overflow: hidden;
+			height: 250px;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
 
-					<div class="section-btn text-center md-mt-60">
-						<a href="blog_03.html" class="btn-eight rounded-3"><span>Explore All</span> <i class="bi bi-arrow-up-right"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /.blog-section-one -->
+		.post-img::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.1);
+			transition: all 0.3s ease;
+		}
+
+		.post-img:hover::after {
+			background: rgba(0,0,0,0.2);
+		}
+
+		.video-label {
+			font-size: 0.85rem;
+			color: #ff4a17;
+			font-weight: 500;
+		}
+
+		/* Modal Styles */
+		.modal-content.bg-transparent {
+			background: transparent !important;
+		}
+
+		.btn-close-white {
+			filter: invert(1) grayscale(100%) brightness(200%);
+			z-index: 1050;
+			background-size: 1.5em;
+			opacity: 1;
+		}
+
+		.btn-close-white:hover {
+			opacity: 0.8;
+		}
+
+		/* Post Date Style */
+		.date {
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
+			background: rgba(255, 255, 255, 0.9);
+			padding: 8px 15px;
+			font-weight: 600;
+			color: #000;
+			text-decoration: none;
+			z-index: 5;
+		}
+
+		.date:hover {
+			background: #fff;
+		}
+
+		/* Blog Meta Styles */
+		.blog-meta-one {
+			transition: all 0.3s ease;
+		}
+
+		.blog-meta-one:hover {
+			transform: translateY(-5px);
+		}
+
+		.post-info {
+			margin: 15px 0 10px;
+			color: #666;
+		}
+
+		.post-info a {
+			color: #333;
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		.post-info a:hover {
+			color: #ff4a17;
+		}
+
+		.blog-title {
+			text-decoration: none;
+			color: #333;
+			flex: 1;
+		}
+
+		.blog-title h4 {
+			font-size: 1.25rem;
+			margin: 0;
+			transition: color 0.3s ease;
+		}
+
+		.blog-title:hover h4 {
+			color: #ff4a17;
+		}
+
+		.read-btn {
+			width: 45px;
+			height: 45px;
+			background: #f8f9fa;
+			color: #333;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+
+		.read-btn:hover {
+			background: #ff4a17;
+			color: #fff;
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			.post-img {
+				height: 200px;
+			}
+			
+			.blog-title h4 {
+				font-size: 1.1rem;
+			}
+		}
+	</style>
 
 
 

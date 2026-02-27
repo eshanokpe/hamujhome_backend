@@ -117,7 +117,7 @@ class HomeController extends Controller
     public function servicesProperties(){
         return view('homePage.services.properties');
     }
-
+ 
     public function servicesHoms(){
         return view('homePage.services.hom');
     }

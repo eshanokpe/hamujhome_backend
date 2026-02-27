@@ -10,6 +10,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use App\Models\Setting;
 use App\Models\Admin;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,6 +50,21 @@ class AppServiceProvider extends ServiceProvider
 
         $socials = Social::all();
         View::share('socials',$socials);
+
+        // Helper function for post image
+        view()->composer('*', function ($view) {
+            $view->with('getPostImage', function ($post) {
+                if (!empty($post->post_image)) {
+                    return asset($post->post_image);
+                } elseif (!empty($post->post_video) || !empty($post->video_thumbnail)) {
+                    // If it's a video post, you might want a video thumbnail
+                    return asset('assets/images/blog/video-placeholder.jpg');
+                } else {
+                    // Default placeholder
+                    return asset('assets/images/blog/default-blog.jpg');
+                }
+            });
+        });
 
 
 

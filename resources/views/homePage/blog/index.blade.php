@@ -45,25 +45,53 @@
                                 <article class="blog-meta-two tran3s position-relative z-1 mb-70 lg-mb-40 wow fadeInUp">
                                     @if($blog->post_image)
                                         <!-- Image Post -->
-                                        <figure class="post-img position-relative m0" style="background-image: url({{ asset('storage/'.$blog->post_image) }});">
+                                        <figure class="post-img position-relative m0" style="background-image: url({{ asset($blog->post_image) }});">
                                             <a href="{{ route('blog.details', $blog->slug) }}" class="date">{{ $blog->created_at->format('d M') }}</a>
                                         </figure>
                                     @elseif($blog->post_video || $blog->video_url)
                                         <!-- Video Post -->
                                         <div class="post-img position-relative m0 video-post">
                                             @if($blog->video_thumbnail)
-                                                <div class="video-thumbnail" style="background-image: url({{ asset('storage/'.$blog->video_thumbnail) }});">
+                                                <div class="video-thumbnail" style="background-image: url({{ asset($blog->video_thumbnail) }});">
                                                     <a href="{{ route('blog.details', $blog->slug) }}" class="date">{{ $blog->created_at->format('d M') }}</a>
-                                                    <a href="{{ $blog->video_url ?? '#' }}" class="play-btn video-popup" data-autoplay="true" data-vbtype="video">
-                                                        <i class="fa-sharp fa-solid fa-play"></i>
-                                                    </a>
+                                                    
+                                                    @if($blog->post_video)
+                                                        <!-- Uploaded Video -->
+                                                        <a href="javascript:void(0)" 
+                                                           class="play-btn" 
+                                                           onclick="openVideoModal('{{ asset('storage/'.$blog->post_video) }}', 'local')">
+                                                            <i class="fa-sharp fa-solid fa-play"></i>
+                                                        </a>
+                                                    @elseif($blog->video_url)
+                                                        <!-- URL Video -->
+                                                        <a href="{{ $blog->video_url }}" 
+                                                           class="play-btn video-popup" 
+                                                           data-autoplay="true" 
+                                                           data-vbtype="video">
+                                                            <i class="fa-sharp fa-solid fa-play"></i>
+                                                        </a>
+                                                    @endif
                                                 </div>
                                             @else
                                                 <figure class="post-img position-relative m0" style="background-image: url({{ asset('assets/images/blog/blog_video_placeholder.jpg') }});">
                                                     <a href="{{ route('blog.details', $blog->slug) }}" class="date">{{ $blog->created_at->format('d M') }}</a>
-                                                    <a href="{{ $blog->video_url ?? '#' }}" class="play-btn video-popup" data-autoplay="true" data-vbtype="video">
-                                                        <i class="fa-sharp fa-solid fa-play"></i>
-                                                    </a>
+                                                    
+                                                    @if($blog->post_video)
+                                                        <!-- Uploaded Video -->
+                                                        <a href="javascript:void(0)" 
+                                                           class="play-btn" 
+                                                           onclick="openVideoModal('{{ asset('storage/'.$blog->post_video) }}', 'local')">
+                                                            <i class="fa-sharp fa-solid fa-play"></i>
+                                                        </a>
+                                                    @elseif($blog->video_url)
+                                                        <!-- URL Video -->
+                                                        <a href="{{ $blog->video_url }}" 
+                                                           class="play-btn video-popup" 
+                                                           data-autoplay="true" 
+                                                           data-vbtype="video">
+                                                            <i class="fa-sharp fa-solid fa-play"></i>
+                                                        </a>
+                                                    @endif
                                                 </figure>
                                             @endif
                                         </div>
@@ -78,6 +106,9 @@
                                         <div class="post-info">
                                             <a href="{{ route('author.posts', $blog->author->username ?? '') }}">{{ $blog->author->name ?? 'Admin' }}</a> . 
                                             {{ $blog->created_at->diffForHumans() }}
+                                            @if($blog->post_video || $blog->video_url)
+                                                <span class="video-badge"><i class="fa-sharp fa-solid fa-play me-1"></i> Video</span>
+                                            @endif
                                         </div>
                                         <div class="d-flex justify-content-between align-items-sm-center flex-wrap">
                                             <a href="{{ route('blog.details', $blog->slug) }}" class="blog-title">
@@ -193,6 +224,25 @@
 		</div>
 		<!-- /.blog-section-three -->
 
+        <!-- Video Modal for uploaded videos -->
+        <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="modal-body p-0 position-relative">
+                        <button type="button" 
+                                class="btn-close btn-close-white position-absolute top-0 end-0 mt-3 me-3" 
+                                data-bs-dismiss="modal" 
+                                aria-label="Close">
+                        </button>
+                        <video id="modalVideo" controls class="w-100 rounded-4" style="max-height: 70vh;">
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 @endsection
 
 @push('scripts')
@@ -214,9 +264,138 @@
             });
             
             lazyImages.forEach(function(lazyImage) {
-                lazyImageObserver.observe(lazyImage);
+                lazyImageObserver.unobserve(lazyImage);
             });
         }
     });
+    
+    // Function to open video modal for uploaded videos
+    function openVideoModal(videoSrc, type) {
+        if (type === 'local') {
+            var modal = new bootstrap.Modal(document.getElementById('videoModal'));
+            var video = document.getElementById('modalVideo');
+            var source = video.querySelector('source');
+            
+            source.src = videoSrc;
+            video.load();
+            
+            modal.show();
+            
+            // Stop video when modal is closed
+            document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+                video.pause();
+                source.src = '';
+                video.load();
+            });
+        }
+    }
+    
+    // Initialize video popup for URL videos if using Venobox or similar
+    if (typeof jQuery !== 'undefined' && typeof jQuery.fn.venobox !== 'undefined') {
+        $('.video-popup').venobox({
+            border: '10px',
+            bgcolor: '#000',
+            titleattr: 'data-title',
+            numeratio: true,
+            infinigall: true
+        });
+    }
 </script>
+@endpush
+
+@push('styles')
+<style>
+    /* Video badge style */
+    .video-badge {
+        display: inline-block;
+        background: #ff4a17;
+        color: white;
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        border-radius: 15px;
+        margin-left: 8px;
+        vertical-align: middle;
+    }
+    
+    /* Video thumbnail container */
+    .video-thumbnail {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    /* Play button style */
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ff4a17;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        z-index: 10;
+        text-decoration: none;
+    }
+    
+    .play-btn:hover {
+        background: #ff4a17;
+        color: white;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    /* Modal styles */
+    .modal-content.bg-transparent {
+        background: transparent !important;
+    }
+    
+    .btn-close-white {
+        filter: invert(1) grayscale(100%) brightness(200%);
+        z-index: 1050;
+        background-size: 1.5em;
+        opacity: 1;
+    }
+    
+    .btn-close-white:hover {
+        opacity: 0.8;
+    }
+    
+    /* Ensure post images have proper height */
+    .post-img {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    /* Date badge style */
+    .date {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        background: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        z-index: 5;
+    }
+    
+    .date:hover {
+        background: #ff4a17;
+        color: white;
+    }
+</style>
 @endpush
