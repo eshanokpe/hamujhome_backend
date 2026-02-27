@@ -608,12 +608,16 @@
 									class="read-btn d-flex align-items-center justify-content-center tran3s rounded-circle">
 										<i class="bi bi-arrow-up-right"></i>
 									</a>
-								</div>
+								</div> 
 							</div>
 						</article>
 
-						<!-- Video Modal -->
+						<!-- Video Modal with .mov support -->
 						@if($post->post_video)
+						@php
+							$videoPath = asset($post->post_video);
+							$videoExtension = pathinfo($post->post_video, PATHINFO_EXTENSION);
+						@endphp
 						<div class="modal fade" id="videoModal{{ $post->id }}" tabindex="-1" 
 							aria-labelledby="videoModalLabel{{ $post->id }}" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered modal-lg">
@@ -625,13 +629,19 @@
 												aria-label="Close">
 										</button>
 										
-										@if($post->post_video)
-											<!-- Local Video -->
-											<video controls class="w-100 rounded-4" style="max-height: 70vh;">
-												<source src="{{ asset($post->post_video) }}" type="video/mp4">
-												Your browser does not support the video tag.
-											</video>
-										@endif
+										<!-- Video player with multiple format support -->
+										<video controls class="w-100 rounded-4" style="max-height: 70vh;" playsinline>
+											<!-- Try multiple source formats for compatibility -->
+											<source src="{{ $videoPath }}" type="video/{{ $videoExtension == 'mov' ? 'quicktime' : $videoExtension }}">
+											<source src="{{ $videoPath }}" type="video/mp4">
+											<source src="{{ $videoPath }}" type="video/quicktime">
+											
+											<!-- Fallback text -->
+											<div class="text-center text-white p-4">
+												<p>Your browser doesn't support HTML5 video.</p>
+												<p>You can <a href="{{ $videoPath }}" class="text-white fw-bold" download>download the video</a> instead.</p>
+											</div>
+										</video>
 									</div>
 								</div>
 							</div>
@@ -655,6 +665,7 @@
 			</div>
 		</div>
 	</div>
+
 
 	<!-- Required CSS -->
 	<style>

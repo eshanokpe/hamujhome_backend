@@ -39,8 +39,8 @@
                                     @if($post->post_video)
                                         <!-- Local Uploaded Video -->
                                         <div class="video-wrapper position-relative">
-                                            <video id="blogVideo" controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset('storage/'.$post->video_thumbnail) : '' }}">
-                                                <source src="{{ asset('storage/'.$post->post_video) }}" type="video/mp4">
+                                            <video id="blogVideo" controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset($post->video_thumbnail) : '' }}">
+                                                <source src="{{ asset($post->post_video) }}" type="video/mp4">
                                                 Your browser does not support the video tag.
                                             </video>
                                             @if(!$post->video_thumbnail)
@@ -93,7 +93,7 @@
                                         @else
                                             <!-- Direct Video File URL -->
                                             <div class="video-wrapper position-relative">
-                                                <video controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset('storage/'.$post->video_thumbnail) : '' }}">
+                                                <video controls class="w-100 rounded-4" poster="{{ $post->video_thumbnail ? asset($post->video_thumbnail) : '' }}">
                                                     <source src="{{ $videoUrl }}" type="video/mp4">
                                                     Your browser does not support the video tag.
                                                 </video>
@@ -229,12 +229,12 @@
                                     <div>
                                         @if($recent->post_image)
                                             <img src="{{ asset('assets/images/lazy.svg') }}" 
-                                                 data-src="{{ asset('storage/'.$recent->post_image) }}" 
+                                                 data-src="{{ asset($recent->post_image) }}" 
                                                  alt="" 
                                                  class="lazy-img">
                                         @elseif($recent->video_thumbnail)
                                             <img src="{{ asset('assets/images/lazy.svg') }}" 
-                                                 data-src="{{ asset('storage/'.$recent->video_thumbnail) }}" 
+                                                 data-src="{{ asset($recent->video_thumbnail) }}" 
                                                  alt="" 
                                                  class="lazy-img">
                                         @else

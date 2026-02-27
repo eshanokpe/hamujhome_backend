@@ -59,7 +59,7 @@
                                                         <!-- Uploaded Video -->
                                                         <a href="javascript:void(0)" 
                                                            class="play-btn" 
-                                                           onclick="openVideoModal('{{ asset('storage/'.$blog->post_video) }}', 'local')">
+                                                           onclick="openVideoModal('{{ asset($blog->post_video) }}', 'local')">
                                                             <i class="fa-sharp fa-solid fa-play"></i>
                                                         </a>
                                                     @elseif($blog->video_url)
@@ -80,7 +80,7 @@
                                                         <!-- Uploaded Video -->
                                                         <a href="javascript:void(0)" 
                                                            class="play-btn" 
-                                                           onclick="openVideoModal('{{ asset('storage/'.$blog->post_video) }}', 'local')">
+                                                           onclick="openVideoModal('{{ asset($blog->post_video) }}', 'local')">
                                                             <i class="fa-sharp fa-solid fa-play"></i>
                                                         </a>
                                                     @elseif($blog->video_url)
@@ -184,7 +184,7 @@
                                     <div>
                                         @if($recent->post_image)
                                             <img src="{{asset('assets/images/lazy.svg')}}" 
-                                                 data-src="{{ asset('storage/'.$recent->post_image) }}" 
+                                                 data-src="{{ asset($recent->post_image) }}" 
                                                  alt="" 
                                                  class="lazy-img">
                                         @else
@@ -396,6 +396,6 @@
     .date:hover {
         background: #ff4a17;
         color: white;
-    }
+    } 
 </style>
 @endpush
