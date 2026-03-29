@@ -6,6 +6,9 @@
 		<style>
 			.hero-banner-eight {
 				overflow: hidden;
+				background-size: contain;
+				background: rgba(0,0,0,0.5);
+
 			}
 
 			#heroSlider {
@@ -14,6 +17,7 @@
 
 			.hero-banner-eight .container {
 				z-index: 2;
+
 			}
 
 			/* Optional dark overlay for readability */
@@ -21,8 +25,9 @@
 				content: "";
 				position: absolute;
 				inset: 0;
-				/* background: rgba(0,0,0,0.5); */
 				z-index: 1;
+				height: 600px;
+
 			}
 			</style>
 
