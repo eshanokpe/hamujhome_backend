@@ -3,50 +3,106 @@
 {{$website->name}}
 @endsection
 @section('content') 
+		<style>
+			.hero-banner-eight {
+				overflow: hidden;
+			}
+
+			#heroSlider {
+				z-index: 0;
+			}
+
+			.hero-banner-eight .container {
+				z-index: 2;
+			}
+
+			/* Optional dark overlay for readability */
+			.hero-banner-eight::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: rgba(0,0,0,0.5);
+				z-index: 1;
+			}
+			</style>
 
 		<!-- 
-		=============================================
-			Hero Banner
-		============================================== 
-		-->
-		<div class="hero-banner-eight z-1 pt-250 xl-pt-200 pb-250 xl-pb-150 lg-pb-100 position-relative">
-			<div class="container position-relative">
-				<div class="row">
-					<div class="col-xl-9 col-lg-10 col-md-10 m-auto">
-						<h1 class="hero-heading text-white text-center wow fadeInUp">Find the Right <br> Home for Your Family</h1>
-						<p class="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">We’ve more than 745,000 apartments, place & plot.</p>
-					</div>
-				</div>
-				<div class="search-wrapper-four me-auto ms-auto mt-45 lg-mt-20 position-relative">
-					<nav class="d-flex justify-content-center">
-						<div class="nav nav-tabs border-0" role="tablist">
-							<button class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy" type="button" role="tab" aria-controls="buy" aria-selected="true">Rent</button>
-							<button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent" type="button" role="tab" aria-controls="rent" aria-selected="false">SAle</button>
-						</div>
-					</nav>
-					<div class="bg-wrapper mt-30">
-						<div class="tab-content">
-							<div class="tab-pane fade show active" id="buy" role="tabpanel" aria-labelledby="buy-tab" tabindex="0">
-								<form action="#" class="position-relative z-1">
-									<input type="text" placeholder="Type location name here...">
-									<button class="tran3s"><img src="{{asset('assets')}}/images/icon/icon_75.svg" alt="" class="m-auto"></button>
-								</form>
-							</div>
-							<div class="tab-pane fade" id="rent" role="tabpanel" aria-labelledby="rent-tab" tabindex="0">
-								<form action="#" class="position-relative z-1">
-									<input type="text" placeholder="Type location name here...">
-									<button class="tran3s"><img src="{{asset('assets')}}/images/icon/icon_75.svg" alt="" class="m-auto"></button>
-								</form>
-							</div>
-						</div>
-						<!-- /.tab-content -->
-					</div>
-				</div>
-				<!-- /.search-wrapper-four -->
-			</div>
-		</div>
-		<!-- /.hero-banner-eight -->
+=============================================
+Hero Banner
+============================================== 
+-->
+<div class="hero-banner-eight z-1 pt-250 xl-pt-200 pb-250 xl-pb-150 lg-pb-100 position-relative">
+ 
+    <!-- BACKGROUND SLIDER (added) -->
+    <div id="heroSlider" class="carousel slide position-absolute top-0 start-0 w-100 h-100" data-bs-ride="carousel">
+        <div class="carousel-inner h-100">
 
+            <div class="carousel-item active h-100">
+                <img src="{{asset('assets')}}/images/slider/slide1.jpg" class="d-block w-100 h-100" style="object-fit: cover;">
+            </div>
+
+            <div class="carousel-item h-100">
+                <img src="{{asset('assets')}}/images/slider/slide2.jpg" class="d-block w-100 h-100" style="object-fit: cover;">
+            </div>
+
+            <div class="carousel-item h-100">
+                <img src="{{asset('assets')}}/images/slider/slide3.jpg" class="d-block w-100 h-100" style="object-fit: cover;">
+            </div>
+			<div class="carousel-item h-100">
+                <img src="{{asset('assets')}}/images/slider/slide4.jpg" class="d-block w-100 h-100" style="object-fit: cover;">
+            </div>
+
+        </div>
+    </div>
+    <!-- END SLIDER -->
+
+    <!-- YOUR ORIGINAL CONTENT (UNCHANGED) -->
+    <div class="container position-relative">
+        <div class="row">
+            <div class="col-xl-9 col-lg-10 col-md-10 m-auto">
+                <h1 class="hero-heading text-white text-center wow fadeInUp">
+                    Find the Right <br> Home for Your Family
+                </h1>
+                <p class="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
+                    We’ve more than 745,000 apartments, place & plot.
+                </p>
+            </div>
+        </div> 
+
+        <div class="search-wrapper-four me-auto ms-auto mt-45 lg-mt-20 position-relative">
+            <nav class="d-flex justify-content-center">
+                <div class="nav nav-tabs border-0" role="tablist">
+                    <button class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy" type="button">Rent</button>
+                    <button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent" type="button">SAle</button>
+                </div>
+            </nav>
+
+            <div class="bg-wrapper mt-30">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="buy">
+                        <form action="#" class="position-relative z-1">
+                            <input type="text" placeholder="Type location name here...">
+                            <button class="tran3s">
+                                <img src="{{asset('assets')}}/images/icon/icon_75.svg" class="m-auto">
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="rent">
+                        <form action="#" class="position-relative z-1">
+                            <input type="text" placeholder="Type location name here...">
+                            <button class="tran3s">
+                                <img src="{{asset('assets')}}/images/icon/icon_75.svg" class="m-auto">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.search-wrapper-four -->
+    </div>
+</div>
+<!-- /.hero-banner-eight -->
 
 		<!--
 		=====================================================
