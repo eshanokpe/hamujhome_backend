@@ -110,12 +110,9 @@
                                                 <span class="video-badge"><i class="fa-sharp fa-solid fa-play me-1"></i> Video</span>
                                             @endif
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-sm-center flex-wrap">
-                                            <a href="{{ route('blog.details', $blog->slug) }}" class="blog-title">
-                                                <h4>{{ Str::limit($blog->title, 40) }}</h4>
-                                            </a>
-                                            <a href="{{ route('blog.details', $blog->slug) }}" class="btn-four">
-                                                <i class="bi bi-arrow-up-right"></i>
+                                        <div class="justify-content-between align-items-sm-center flex-wrap">
+                                            <a href="{{ route('blog.details', $blog->slug) }}" class="">
+                                                <h6>{{ Str::limit($blog->title, 40) }}</h6>
                                             </a>
                                         </div>
                                     </div>
