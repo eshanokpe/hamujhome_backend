@@ -4,7 +4,8 @@
 @endsection
 @section('content') 
 		<style>
-			.hero-banner-eight {
+			
+		.hero-banner-eight {
 				overflow: hidden;
 				background-size: contain;
 				background: rgba(0,0,0,0.5);
@@ -29,7 +30,66 @@
 				height: 600px;
 
 			}
-			</style>
+			
+			/* Video Section Styles */
+			.video-showcase-section {
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.video-wrapper {
+				position: relative;
+				overflow: hidden;
+				border-radius: 24px;
+				box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			
+			.video-wrapper:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+			}
+			
+			.video-wrapper iframe {
+				width: 100%;
+				height: 100%;
+				border: none;
+				display: block;
+			}
+			
+			.video-title {
+				position: relative;
+				display: inline-block;
+				margin-bottom: 1.5rem;
+			}
+			
+			.video-title::after {
+				content: '';
+				position: absolute;
+				bottom: -10px;
+				left: 0;
+				width: 60px;
+				height: 3px;
+				background: linear-gradient(90deg, #ff4a17, #ff8a5c);
+				border-radius: 2px;
+			}
+			
+			@media (max-width: 768px) {
+				.video-wrapper {
+					border-radius: 16px;
+				}
+				
+				.video-wrapper iframe {
+					height: 300px;
+				}
+			}
+			
+			@media (max-width: 576px) {
+				.video-wrapper iframe {
+					height: 250px;
+				}
+			}
+		</style>
 
 		<!-- 
 =============================================
@@ -63,51 +123,108 @@ Hero Banner
 
     <!-- YOUR ORIGINAL CONTENT (UNCHANGED) -->
     <div class="container position-relative">
-        <div class="row">
-            <div class="col-xl-9 col-lg-10 col-md-10 m-auto">
-                <h1 class="hero-heading text-white text-center wow fadeInUp">
-                    Find the Right <br> Home for Your Family
-                </h1>
-                <p class="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
-                    We’ve more than 745,000 apartments, place & plot.
-                </p>
-            </div>
-        </div> 
+			<div class="row">
+				<div class="col-xl-9 col-lg-10 col-md-10 m-auto">
+					<h1 class="hero-heading text-white text-center wow fadeInUp">
+						Find the Right <br> Home for Your Family
+					</h1>
+					<p class="fs-24 text-white text-center pt-35 wow fadeInUp" data-wow-delay="0.1s">
+						We’ve more than 745,000 apartments, place & plot.
+					</p>
+				</div>
+			</div> 
 
-        <div class="search-wrapper-four me-auto ms-auto mt-45 lg-mt-20 position-relative">
-            <nav class="d-flex justify-content-center">
-                <div class="nav nav-tabs border-0" role="tablist">
-                    <button class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy" type="button">Rent</button>
-                    <button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent" type="button">SAle</button>
-                </div>
-            </nav>
+			<div class="search-wrapper-four me-auto ms-auto mt-45 lg-mt-20 position-relative">
+				<nav class="d-flex justify-content-center">
+					<div class="nav nav-tabs border-0" role="tablist">
+						<button class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy" type="button">Rent</button>
+						<button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent" type="button">SAle</button>
+					</div>
+				</nav>
 
-            <div class="bg-wrapper mt-30">
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="buy">
-                        <form action="#" class="position-relative z-1">
-                            <input type="text" placeholder="Type location name here...">
-                            <button class="tran3s">
-                                <img src="{{asset('assets')}}/images/icon/icon_75.svg" class="m-auto">
-                            </button>
-                        </form>
-                    </div>
+				<div class="bg-wrapper mt-30">
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="buy">
+							<form action="#" class="position-relative z-1">
+								<input type="text" placeholder="Type location name here...">
+								<button class="tran3s">
+									<img src="{{asset('assets')}}/images/icon/icon_75.svg" class="m-auto">
+								</button>
+							</form>
+						</div>
 
-                    <div class="tab-pane fade" id="rent">
-                        <form action="#" class="position-relative z-1">
-                            <input type="text" placeholder="Type location name here...">
-                            <button class="tran3s">
-                                <img src="{{asset('assets')}}/images/icon/icon_75.svg" class="m-auto">
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.search-wrapper-four -->
-    </div>
-</div>
-<!-- /.hero-banner-eight -->
+						<div class="tab-pane fade" id="rent">
+							<form action="#" class="position-relative z-1">
+								<input type="text" placeholder="Type location name here...">
+								<button class="tran3s">
+									<img src="{{asset('assets')}}/images/icon/icon_75.svg" class="m-auto">
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.search-wrapper-four -->
+		</div>
+	</div>
+	<!-- /.hero-banner-eight -->
+
+	<!-- 
+		=====================================================
+			Video Showcase Section (Added)
+		=====================================================
+		-->
+		<div class="video-showcase-section mt-100 xl-mt-80 pt-50 pb-50">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 mb-4 mb-lg-0">
+						<div class="pe-lg-5">
+							<h3 class="video-title wow fadeInUp" style="font-size: 2.5rem; font-weight: 700;">
+								See Our <span style="color: #ff4a17;">Properties</span> in Action
+							</h3>
+							<p class="fs-18 text-muted mb-4 wow fadeInUp" data-wow-delay="0.1s">
+								Take a quick tour of our stunning properties and discover what makes us the leading real estate partner in Nigeria. From luxury apartments to commercial spaces, we have something for everyone.
+							</p>
+							<div class="d-flex gap-3 wow fadeInUp" data-wow-delay="0.2s">
+								<div class="d-flex align-items-center">
+									<div class="rounded-circle bg-primary bg-opacity-10 p-2 me-2">
+										<i class="fas fa-home text-primary"></i>
+									</div>
+									<span>50+ Properties</span>
+								</div>
+								<div class="d-flex align-items-center">
+									<div class="rounded-circle bg-primary bg-opacity-10 p-2 me-2">
+										<i class="fas fa-smile text-primary"></i>
+									</div>
+									<span>1000+ Happy Clients</span>
+								</div>
+								<div class="d-flex align-items-center">
+									<div class="rounded-circle bg-primary bg-opacity-10 p-2 me-2">
+										<i class="fas fa-star text-primary"></i>
+									</div>
+									<span>4.9 Rating</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="video-wrapper wow fadeInUp" data-wow-delay="0.3s" style="min-height: 450px;">
+							<!-- YouTube Shorts Embed -->
+							<iframe 
+								src="https://www.youtube.com/embed/IEUE3SDBi4I?autoplay=0&rel=0&modestbranding=1&showinfo=0" 
+								title="Property Showcase Video"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+								style="width: 100%; height: 100%; min-height: 450px; border: none;">
+							</iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.video-showcase-section -->
+
+	
 
 		<!--
 		=====================================================
