@@ -21,7 +21,7 @@
                                     <span class="video-badge"><i class="fa-sharp fa-solid fa-play me-1"></i> Video</span>
                                 @endif
                             </div>
-                            <h3 class="blog-title">{{ $post->title }}</h3>
+                            <h5 class="blog-title">{{ $post->title }}</h5>
                         </div>
                     </div>
                 </div>
