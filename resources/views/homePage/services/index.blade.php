@@ -135,9 +135,9 @@
                 <div class="col-lg-4 col-md-6 d-flex mt-40 wow fadeInUp">
                     <div class="card-style-ten rounded-0 d-flex align-items-start flex-column w-100 h-100">
                         <div class="icon d-flex align-items-center justify-content-center rounded-circle tran3s"><img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/icon/icon_69.svg" alt="" class="lazy-img"></div>
-                        <h6>Properties</h6>
+                        <h6>Real Estate Sales & Advisory</h6>
                         <p>
-                            Aside development of properties for individuals (residential & commercial), we also have numbers of our own residential development across Nigeria.
+                            HAMUJ HOMES offers professional support in buying and selling properties, ensuring seamless transactions and maximum value for our clients. We guide clients through every stage of the sales process with transparency and expertise.
                         </p>
                         <a href="#" class="btn-twelve sm mt-auto">Buy Home</a>
                     </div>
@@ -146,9 +146,9 @@
                 <div class="col-lg-4 col-md-6 d-flex mt-40 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="card-style-ten rounded-0 d-flex align-items-start flex-column w-100 h-100">
                         <div class="icon d-flex align-items-center justify-content-center rounded-circle tran3s"><img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/icon/icon_70.svg" alt="" class="lazy-img"></div>
-                        <h6>Shortlets </h6>
+                        <h6>Property Investment & Portfolio Trading </h6>
                         <p>
-                            We have created magical spaces to spark love, joy, happiness and reunion between you and your loved ones. We would love to host you.
+                            We help clients build and manage real estate portfolios through strategic buying, selling, and asset optimization. Our goal is to create sustainable wealth through smart property investments.
                         </p>
                         <a href="#" class="btn-twelve sm mt-auto">Rent Home</a>
                     </div>
@@ -157,8 +157,10 @@
                 <div class="col-lg-4 col-md-6 d-flex mt-40 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="card-style-ten rounded-0 d-flex align-items-start flex-column w-100 h-100">
                         <div class="icon d-flex align-items-center justify-content-center rounded-circle tran3s"><img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/icon/icon_71.svg" alt="" class="lazy-img"></div>
-                        <h6>HMOs</h6>
-                        <p> We specialize in beautiful, budget-friendly homes for professionals and Long-term, lucrative returns for our partners</p>
+                        <h6>Leasing & Tenancy Solutions</h6>
+                        <p> 
+                            Our leasing services connect property owners with qualified tenants while ensuring smooth tenancy management. We handle negotiations, documentation, and occupancy processes efficiently.
+                        </p>
                         <a href="#" class="btn-twelve sm mt-auto">Sell Home</a>
                     </div>
                     <!-- /.card-style-ten -->
@@ -166,27 +168,9 @@
                 <div class="col-lg-4 col-md-6 d-flex mt-40 wow fadeInUp">
                     <div class="card-style-ten rounded-0 d-flex align-items-start flex-column w-100 h-100">
                         <div class="icon d-flex align-items-center justify-content-center rounded-circle tran3s"><img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/icon/icon_69.svg" alt="" class="lazy-img"></div>
-                        <h6>Furniture</h6>
-                        <p>Design, manufacture, restoration, custom solutions, expert craftsmanship and delivery of high-quality furniture for residential and commercial spaces.</p>
+                        <h6>Real Estate Investment Advisory Services</h6>
+                        <p>We provide expert guidance to help clients make informed real estate decisions. Whether you are a first-time buyer or a seasoned investor, we offer insights that align with your financial goals.</p>
                         <a href="#" class="btn-twelve sm mt-auto">Buy Home</a>
-                    </div>
-                    <!-- /.card-style-ten -->
-                </div>
-                <div class="col-lg-4 col-md-6 d-flex mt-40 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="card-style-ten rounded-0 d-flex align-items-start flex-column w-100 h-100">
-                        <div class="icon d-flex align-items-center justify-content-center rounded-circle tran3s"><img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/icon/icon_70.svg" alt="" class="lazy-img"></div>
-                        <h6>Construction</h6>
-                        <p>Property development, repair, and renovations for residential and commercial structures.</p>
-                        <a href="#" class="btn-twelve sm mt-auto">Rent Home</a>
-                    </div>
-                    <!-- /.card-style-ten -->
-                </div>
-                <div class="col-lg-4 col-md-6 d-flex mt-40 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="card-style-ten rounded-0 d-flex align-items-start flex-column w-100 h-100">
-                        <div class="icon d-flex align-items-center justify-content-center rounded-circle tran3s"><img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/icon/icon_71.svg" alt="" class="lazy-img"></div>
-                        <h6>Interiors</h6>
-                        <p>Planning, and execution of stunning interiors for residential and commercial spaces, custom solutions, space optimization, etc.</p>
-                        <a href="#" class="btn-twelve sm mt-auto">Sell Home</a>
                     </div>
                     <!-- /.card-style-ten -->
                 </div>

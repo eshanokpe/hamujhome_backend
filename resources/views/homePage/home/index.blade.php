@@ -3,7 +3,7 @@
 {{$website->name}}
 @endsection
 @section('content') 
-		<style>
+			<style>
 			
 		.hero-banner-eight {
 				overflow: hidden;
@@ -89,8 +89,69 @@
 					height: 250px;
 				}
 			}
-		</style>
 
+			/* Subscription Banner Styles */
+			.subscription-banner {
+				background: linear-gradient(135deg, #ff4a17 0%, #ff8a5c 100%);
+				border-radius: 20px;
+				padding: 40px;
+				margin: 40px 0;
+				box-shadow: 0 15px 35px rgba(255, 74, 23, 0.2);
+				transition: transform 0.3s ease;
+			}
+
+			.subscription-banner:hover {
+				transform: translateY(-5px);
+			}
+
+			.subscription-banner h3 {
+				color: white;
+				font-size: 2rem;
+				font-weight: 700;
+				margin-bottom: 15px;
+			}
+
+			.subscription-banner p {
+				color: rgba(255, 255, 255, 0.95);
+				font-size: 1.1rem;
+				margin-bottom: 0;
+			}
+
+			.subscription-btn {
+				background: white;
+				color: #ff4a17;
+				padding: 15px 35px;
+				border-radius: 50px;
+				font-weight: 600;
+				text-decoration: none;
+				display: inline-block;
+				transition: all 0.3s ease;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			}
+
+			.subscription-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+				background: #fff;
+				color: #e63e0c;
+			}
+
+			@media (max-width: 768px) {
+				.subscription-banner {
+					padding: 30px 20px;
+					text-align: center;
+				}
+				
+				.subscription-banner h3 {
+					font-size: 1.5rem;
+				}
+				
+				.subscription-btn {
+					margin-top: 15px;
+					padding: 12px 25px;
+				}
+			}
+		</style>
 		<!-- 
 =============================================
 Hero Banner
@@ -170,6 +231,31 @@ Hero Banner
 	<!-- /.hero-banner-eight -->
 
 	<!-- 
+=====================================================
+    Property Interest Form Banner
+=====================================================
+-->
+<div class="container">
+    <div class="subscription-banner wow fadeInUp">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h3>Interested in Our Properties?</h3>
+                <p>Fill out our quick form to get personalized property recommendations, exclusive deals, and expert guidance from our real estate team.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSewnaa_CWbmT4je0fSmND7oFKERbS_vHua3Wiio7nFjAXclNA/viewform?usp=publish-editor" 
+                   class="subscription-btn" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fas fa-home me-2"></i>Share Your Details
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+	<!-- 
 		=====================================================
 			Video Showcase Section (Added)
 		=====================================================
@@ -244,11 +330,10 @@ Hero Banner
 						<div class="card-style-twelve text-center wow fadeInUp mt-20">
 							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
                                 <img src="{{asset('assets')}}/images/icon/icon_76.svg" alt=""></div>
-							<h6 class="fs-20 text-uppercase fw-bold">Properties</h6>
+							<h6 class="fs-20 text-uppercase fw-bold">Asset & Property Management Solutions</h6>
 							<p class="fs-22 ps-xxl-4 pe-xxl-4">
-                                  Aside development of properties for individuals (residential & commercial), we also have numbers of our own residential development across Nigeria. 
-                
-                            </p>
+                                 HAMUJ HOMES provide comprehensive property management services designed to preserve and enhance the value of real estate assets. From maintenance coordination to tenant management, we ensure properties are efficiently managed and profitable. 
+                			</p>
 						</div>
 						<!-- /.card-style-twelve -->
 					</div>
@@ -256,9 +341,9 @@ Hero Banner
 						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.1s">
 							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
                                 <img src="{{asset('assets')}}/images/icon/icon_77.svg" alt=""></div>
-							<h6 class="fs-20 text-uppercase fw-bold">Shortlets</h6>
+							<h6 class="fs-20 text-uppercase fw-bold">Strategic Property Acquisition Services</h6>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">
-                                   We have created magical spaces to spark love, joy, happiness and reunion between you and your loved ones. We would love to host you.
+                                HAMUJ HOMES assist clients in identifying and securing high-potential land and housing opportunities. Our approach focuses on due diligence, location analysis, and long-term value to ensure safe and profitable investments
                             </p>
 						</div>
 						<!-- /.card-style-twelve -->
@@ -267,10 +352,9 @@ Hero Banner
 						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
 							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
                                 <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
-							<h6 class="fs-20 text-uppercase fw-bold">HMO</h6>
-							<p class="fs-24 ps-xxl-4 pe-xxl-4">I
-                                  We specialize in beautiful, budget-friendly homes for professionals and Long-term, lucrative returns for our partners
-                    
+							<h6 class="fs-20 text-uppercase fw-bold">Real Estate Sales & Advisory</h6>
+							<p class="fs-24 ps-xxl-4 pe-xxl-4">
+								HAMUJ HOMES offers professional support in buying and selling properties, ensuring seamless transactions and maximum value for our clients. We guide clients through every stage of the sales process with transparency and expertise.
                             </p>
 						</div>
 						<!-- /.card-style-twelve -->
@@ -279,11 +363,9 @@ Hero Banner
 						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
 							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
                                 <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
-							<h6 class="fs-20 text-uppercase fw-bold">Furniture</h6>
+							<h6 class="fs-20 text-uppercase fw-bold">Property Investment & Portfolio Trading</h6>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">
-                                Design, manufacture, restoration, custom solutions, expert
-                                craftsmanship and delivery of high-quality furniture for
-                                residential and commercial spaces.
+                                We help clients build and manage real estate portfolios through strategic buying, selling, and asset optimization. Our goal is to create sustainable wealth through smart property investments.
                             </p>
 						</div>
 						<!-- /.card-style-twelve -->
@@ -292,10 +374,9 @@ Hero Banner
 						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
 							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
                                 <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
-							<h6 class="fs-20 text-uppercase fw-bold">Interiors</h6>
+							<h6 class="fs-20 text-uppercase fw-bold">Leasing & Tenancy Solutions</h6>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">
-                                Planning, and execution of stunning interiors for residential and
-                                commercial spaces, custom solutions, space optimization, etc.
+                                Our leasing services connect property owners with qualified tenants while ensuring smooth tenancy management. We handle negotiations, documentation, and occupancy processes efficiently.
                             </p>
 						</div>
 						<!-- /.card-style-twelve -->
@@ -304,10 +385,9 @@ Hero Banner
 						<div class="card-style-twelve text-center wow fadeInUp mt-20" data-wow-delay="0.2s">
 							<div class="icon d-flex align-items-center justify-content-center m-auto tran3s rounded-circle">
                                 <img src="{{asset('assets')}}/images/icon/icon_78.svg" alt=""></div>
-							<h6 class="fs-20 text-uppercase fw-bold">Construction</h6>
+							<h6 class="fs-20 text-uppercase fw-bold">Real Estate Investment Advisory Services</h6>
 							<p class="fs-24 ps-xxl-4 pe-xxl-4">
-                                Property development, repair, and renovations for
-                                residential and commercial structures.
+                                We provide expert guidance to help clients make informed real estate decisions. Whether you are a first-time buyer or a seasoned investor, we offer insights that align with your financial goals.
                             </p>
 						</div>
 						<!-- /.card-style-twelve -->
@@ -592,8 +672,8 @@ Hero Banner
 								<div class="d-flex align-items-start pe-xxl-5">
 									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_40.svg" alt="" class="lazy-img icon">
 									<div class="text">
-										<h5 class="text-white">Property Insurance</h5>
-										<p>Elit esse cillum dol fug nulla tur nos ullamo.</p>
+										<h5 class="text-white">Trusted and transparent processes</h5>
+										<!-- <p>Elit esse cillum dol fug nulla tur nos ullamo.</p> -->
 									</div>
 								</div>
 							</div>
@@ -604,8 +684,8 @@ Hero Banner
 								<div class="d-flex align-items-start pe-xxl-2 ps-xxl-2">
 									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_41.svg" alt="" class="lazy-img icon">
 									<div class="text">
-										<h5 class="text-white">Easy Payments</h5>
-										<p>quis nostrud exerct ulla security finibus ne derived.</p>
+										<h5 class="text-white">Deep knowledge of the Nigerian real estate market</h5>
+										<!-- <p>quis nostrud exerct ulla security finibus ne derived.</p> -->
 									</div>
 								</div>
 							</div>
@@ -616,8 +696,40 @@ Hero Banner
 								<div class="d-flex align-items-start ps-xxl-5">
 									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_42.svg" alt="" class="lazy-img icon">
 									<div class="text">
-										<h5 class="text-white">Quick Process</h5>
-										<p>Duis aute irure do reprehe de Cicero's voluptat velit.</p>
+										<h5 class="text-white">Client-focused approach</h5>
+									</div>
+								</div>
+							</div>
+							<!-- /.card-style-eight -->
+						</div>
+						<div class="col-lg-4">
+							<div class="card-style-eight mt-45 wow fadeInUp">
+								<div class="d-flex align-items-start ps-xxl-5">
+									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_42.svg" alt="" class="lazy-img icon">
+									<div class="text">
+										<h5 class="text-white">Strong investment insight and advisory</h5>
+									</div>
+								</div>
+							</div>
+							<!-- /.card-style-eight -->
+						</div>
+						<div class="col-lg-4">
+							<div class="card-style-eight mt-45 wow fadeInUp">
+								<div class="d-flex align-items-start ps-xxl-5">
+									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_42.svg" alt="" class="lazy-img icon">
+									<div class="text">
+										<h5 class="text-white">End-to-end real estate solutions</h5>
+									</div>
+								</div>
+							</div>
+							<!-- /.card-style-eight -->
+						</div>
+						<div class="col-lg-4">
+							<div class="card-style-eight mt-45 wow fadeInUp">
+								<div class="d-flex align-items-start ps-xxl-5">
+									<img src="{{asset('assets')}}/images/lazy.svg" data-src="images/icon/icon_42.svg" alt="" class="lazy-img icon">
+									<div class="text">
+										<h5 class="text-white">Commitment to quality and integrity</h5>
 									</div>
 								</div>
 							</div>

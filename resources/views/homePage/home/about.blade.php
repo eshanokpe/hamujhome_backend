@@ -3,6 +3,28 @@
 {{$website->name}}
 @endsection
 @section('content') 
+<style>
+    .about-hamuj-section .why-choose-box {
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.about-hamuj-section .why-choose-box ul li {
+    list-style: none;
+}
+
+.about-hamuj-section .mission-box,
+.about-hamuj-section .vision-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-hamuj-section .mission-box:hover,
+.about-hamuj-section .vision-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+</style>
 
 <!-- 
 =============================================
@@ -25,118 +47,88 @@
 </div>
 <!-- /.inner-banner-three -->
 
-
-<!--
+    <!--
     =====================================================
-        BLock Feature Fifteen
+        About Hamuj Homes Section
     =====================================================
     -->
-    <div class="block-feature-fifteen mt-150 xl-mt-100 mb-140 xl-mb-80">
+    <div class="about-hamuj-section mt-150 xl-mt-100 pb-150">
         <div class="container">
-            <div class="row gx-xl-5">
-                <div class="col-xl-6 col-lg-7 order-lg-last wow fadeInRight">
-                    <div class="ms-xxl-5 ps-xl-4 ps-lg-5 md-mb-50">
-                        <div class="title-one mb-45 lg-mb-20">
-                            <h2 class="font-garamond star-shape">Find Your Preferable Match Easily. <span class="star-shape">
-                                <img src="{{asset('assets')}}/images/lazy.svg" data-src="{{asset('assets')}}/images/shape/shape_37.svg" alt="" class="lazy-img"></span></h2>
-                        </div>
-                        <!-- /.title-one -->
-                        <div class="accordion-style-three">
-                            <div class="accordion" id="accordionThree">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneA" aria-expanded="false" aria-controls="collapseOneA">
-                                           Our History
-                                        </button>
-                                        </h2>
-                                        <div id="collapseOneA" class="accordion-collapse collapse show" data-bs-parent="#accordionThree">
-                                        <div class="accordion-body">
-                                            <p class="fs-22">
-                                                Hamuj Homes Ltd., established in 2017, we began as a wood exporting company, sourcing and delivering quality wood worldwide. We expanded into home furniture in 2020, offering TV units, wardrobes, closets, and kitchen cabinets. By 2021, we achieved N150 million ($113,670) in revenue, allowing us to diversify into real estate and start acquiring properties from our profits.
-
-                                                In 2022, we transitioned into a full-time interior design company, completing over 3,000 homes across Nigeria and serving a diverse clientele, including celebrities, government officials, and private organization founders. By 2024, we acquired N400 million ($303,000) in real estate and other assets. Currently, we are constructing Terrace apartments, fully funded by our profits, as we progress toward evolving into a comprehensive group of companies under the Hamuj Group umbrella.
-                                            </p>
-                                        </div>
-                                        </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoA" aria-expanded="false" aria-controls="collapseTwoA">
-                                           Our Mission
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwoA" class="accordion-collapse collapse" data-bs-parent="#accordionThree">
-                                        <div class="accordion-body">
-                                            <p class="fs-22">
-                                                Our mission is to build expansive, vibrant communities across Africa, fostering connections among people of diverse tribes, languages, religions, and cultures.
-                                                We aim to create an inclusive environment where individuals from various backgrounds can come together, share their unique perspectives, and celebrate their rich cultural heritage. By bridging these differences, we hope to promote understanding, unity, and cooperation throughout the continent
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeA" aria-expanded="true" aria-controls="collapseThreeA">
-                                            Our vision
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThreeA" class="accordion-collapse collapse" data-bs-parent="#accordionThree">
-                                        <div class="accordion-body">
-                                            <p class="fs-22">
-                                                <ul className="principle-1 lists flex flex-col gap-y-7 max-w-[70%]">
-                                                    <li>
-                                                        To Combine luxury and affordability for the average Nigerian.
-                                                    </li>
-                                                    <li>Enable fast and time-bound project delivery.</li>
-                                                    <li>
-                                                        To become a multinational real estate group and solve trending and existing real estate issues
-                                                        across Africa.
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsevalues" aria-expanded="true" aria-controls="collapseThreeA">
-                                            Our values
-                                        </button>
-                                    </h2>
-                                    <div id="collapsevalues" class="accordion-collapse collapse" data-bs-parent="#accordionThree">
-                                        <div class="accordion-body">
-                                            <p class="fs-22">
-                                                <ul className="principle-2 lists flex flex-col gap-y-3 max-w-[70%]">
-                                                    <li>Excellence</li>
-                                                    <li>Quality</li>
-                                                    <li>Tranquility</li>
-                                                    <li>Impeccability</li>
-                                                    <li>Integrity</li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.accordion-style-three -->
-                        <a href="contact.html" class="btn-five mt-75 lg-mt-50">Contact us</a>
+            <div class="row align-items-center">
+                <div class="col-lg-6 wow fadeInLeft">
+                    <div class="about-content pe-xl-5">
+                        <h2 class="font-garamond mb-30">About <span style="color: #ff4a17;">Hamuj Homes</span></h2>
+                        <p class="fs-22 mb-30">
+                            HAMUJ HOMES is a premier real estate brand redefining property investment and lifestyle experiences in Nigeria. Since its establishment in 2020, the company has built a reputation for excellence, integrity, and innovation in delivering high-value real estate solutions.
+                        </p>
+                        <p class="fs-22 mb-30">
+                            We specialize in premium land and property acquisition, bespoke property management, and strategic investment advisory tailored to discerning clients. Beyond real estate, we elevate living standards through curated interior décor and high-quality furniture solutions, transforming spaces into refined environments of comfort and elegance.
+                        </p>
+                        <p class="fs-22 mb-30">
+                            At HAMUJ HOMES, we combine market expertise with a client-centric approach to deliver seamless, sophisticated, and rewarding real estate experiences.
+                        </p>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-5 d-lg-flex wow fadeInLeft">
-                    <div class="media-block h-100 w-100 pe-xl-5">
-                        <div class="bg-img position-relative" style="background-image: url({{asset('assets')}}/images/media/img_52.jpg);">
-                       
-                        </div>
+                <div class="col-lg-6 wow fadeInRight">
+                    <div class="why-choose-box bg-white p-40 rounded-4 shadow-sm">
+                        <h3 class="font-garamond mb-25">Why Choose <span style="color: #ff4a17;">HAMUJ HOMES</span></h3>
+                        <ul class="style-none">
+                            <li class="d-flex align-items-center mb-20">
+                                <i class="fas fa-check-circle text-primary me-3" style="color: #ff4a17 !important; font-size: 24px;"></i>
+                                <span class="fs-18">Trusted and transparent processes</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-20">
+                                <i class="fas fa-check-circle text-primary me-3" style="color: #ff4a17 !important; font-size: 24px;"></i>
+                                <span class="fs-18">Deep knowledge of the Nigerian real estate market</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-20">
+                                <i class="fas fa-check-circle text-primary me-3" style="color: #ff4a17 !important; font-size: 24px;"></i>
+                                <span class="fs-18">Client-focused approach</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-20">
+                                <i class="fas fa-check-circle text-primary me-3" style="color: #ff4a17 !important; font-size: 24px;"></i>
+                                <span class="fs-18">Strong investment insight and advisory</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-20">
+                                <i class="fas fa-check-circle text-primary me-3" style="color: #ff4a17 !important; font-size: 24px;"></i>
+                                <span class="fs-18">End-to-end real estate solutions</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-20">
+                                <i class="fas fa-check-circle text-primary me-3" style="color: #ff4a17 !important; font-size: 24px;"></i>
+                                <span class="fs-18">Commitment to quality and integrity</span>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- /.media-block -->
                 </div>
             </div>
-          
+
+            <!-- Mission and Vision Row -->
+            <div class="row mt-80 xl-mt-60 g-4">
+                <div class="col-md-6 wow fadeInUp">
+                    <div class="mission-box p-40 rounded-4 text-center h-100" style="background: #f8f9fa;">
+                        <div class="icon mb-25">
+                            <i class="fas fa-bullseye" style="font-size: 50px; color: #ff4a17;"></i>
+                        </div>
+                        <h3 class="font-garamond mb-20">Our Mission</h3>
+                        <p class="fs-18">
+                            To provide reliable and innovative real estate solutions that empower clients to build wealth and secure their future through property ownership and investment.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="vision-box p-40 rounded-4 text-center h-100" style="background: #f8f9fa;">
+                        <div class="icon mb-25">
+                            <i class="fas fa-eye" style="font-size: 50px; color: #ff4a17;"></i>
+                        </div>
+                        <h3 class="font-garamond mb-20">Our Vision</h3>
+                        <p class="fs-18">
+                            To become a leading real estate brand in Nigeria and globally known for excellence, trust, and value creation.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
     </div>
-    <!-- /.block-feature-fifteen -->
 
 
     <!--
