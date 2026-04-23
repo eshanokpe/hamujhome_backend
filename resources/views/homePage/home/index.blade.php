@@ -249,6 +249,12 @@ Hero Banner
                    rel="noopener noreferrer">
                     <i class="fas fa-home me-2"></i>Share Your Details
                 </a>
+				 <a href="{{asset('assets/documents/hamuj-homes-brochure.pdf')}}" 
+					class="subscription-btn pdf-btn" 
+					download
+					style="background: transparent; border: 2px solid white; color: white;">
+						<i class="fas fa-download me-2"></i>Download Brochure
+					</a>
             </div>
         </div>
     </div>
