@@ -749,35 +749,26 @@ Hero Banner
 			Category Section Two
 		============================================== 
 		-->
-		<div class="category-section-two mt-170 xl-mt-120">
+		<!-- <div class="category-section-two mt-170 xl-mt-120">
 			<div class="container container-large">
                 <div class="position-relative">
                     <div class="title-one text-center text-lg-start mb-60 xl-mb-40 lg-mb-20 wow fadeInUp">
 						<h3>Popular Categories.</h3>
 					</div>
-					<!-- /.title-one -->
-                    
 					<div class="wrapper flex-wrap d-flex justify-content-center justify-content-md-between align-items-center">
 						<div class="card-style-seven position-relative z-1 rounded-circle overflow-hidden d-flex align-items-center justify-content-center wow fadeInUp" style="background-image: url({{asset('assets')}}/images/media/img_38.jpg);">
 							<a href="listing_03.html" class="title stretched-link"><h4 class="text-white tran3s">Properties</h4></a>
 						</div>
-						<!-- /.card-style-seven -->
 						<div class="card-style-seven position-relative z-1 rounded-circle overflow-hidden d-flex align-items-center justify-content-center wow fadeInUp" style="background-image: url({{asset('assets')}}/images/media/img_39.jpg);" data-wow-delay="0.1s">
 							<a href="listing_03.html" class="title stretched-link"><h4 class="text-white tran3s">HMOs</h4></a>
 						</div>
-						<!-- /.card-style-seven -->
 						<div class="card-style-seven position-relative z-1 rounded-circle overflow-hidden d-flex align-items-center justify-content-center wow fadeInUp" style="background-image: url({{asset('assets')}}/images/media/img_40.jpg);" data-wow-delay="0.2s">
 							<a href="listing_03.html" class="title stretched-link"><h4 class="text-white tran3s">Consultaion</h4></a>
 						</div>
-						<!-- /.card-style-seven -->
 					</div>
-                    {{-- <div class="section-btn text-center md-mt-60">
-                        <a href="listing_02.html" class="btn-eleven"><span>See all categories</span> <i class="bi bi-chevron-right"></i></a>
-                    </div> --}}
-                    <!-- /.section-btn -->
                 </div>
             </div>
-		</div>
+		</div> -->
 		<!-- /.category-section-two -->
 
 
@@ -839,7 +830,7 @@ Hero Banner
 			<div class="position-relative">
 				<!-- Section Title -->
 				<div class="title-one mb-35 xl-mb-20 md-mb-10 wow fadeInUp">
-					<h3>Latest <span>News <img src="{{asset('assets')}}/images/lazy.svg" 
+					<h3>Latest <span>Blog <img src="{{asset('assets')}}/images/lazy.svg" 
 							data-src="{{asset('assets')}}/images/shape/title_shape_01.svg" 
 							alt="" class="lazy-img"></span>
 					</h3>
