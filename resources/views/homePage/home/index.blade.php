@@ -243,19 +243,21 @@ Hero Banner
                 <p>Fill out our quick form to get personalized property recommendations, exclusive deals, and expert guidance from our real estate team.</p>
             </div>
             <div class="col-lg-4 text-lg-end">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSewnaa_CWbmT4je0fSmND7oFKERbS_vHua3Wiio7nFjAXclNA/viewform?usp=publish-editor" 
-                   class="subscription-btn" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    <i class="fas fa-home me-2"></i>Share Your Details
-                </a>
-				 <a href="{{asset('assets/documents/hamuj-homes-subscription-form.pdf')}}" 
+				<div class="d-flex flex-wrap gap-3 justify-content-lg-end">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSewnaa_CWbmT4je0fSmND7oFKERbS_vHua3Wiio7nFjAXclNA/viewform?usp=publish-editor" 
+					class="subscription-btn" 
+					target="_blank" 
+					rel="noopener noreferrer">
+						<i class="fas fa-user-check me-2"></i>Share Your Details
+					</a>
+					<a href="{{asset('assets/documents/hamuj-homes-brochure.pdf')}}" 
 					class="subscription-btn pdf-btn" 
 					download
 					style="background: transparent; border: 2px solid white; color: white;">
-						<i class="fas fa-download me-2"></i>Download Subscription Form
+						<i class="fas fa-download me-2"></i>Download Brochure
 					</a>
-            </div>
+				</div>
+			</div>
         </div>
     </div>
 </div>
