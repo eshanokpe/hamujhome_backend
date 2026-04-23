@@ -162,7 +162,9 @@ Hero Banner
     <!-- BACKGROUND SLIDER (added) -->
     <div id="heroSlider" class="carousel slide position-absolute top-0 start-0 w-100 h-100" data-bs-ride="carousel">
         <div class="carousel-inner h-100">
-
+			<div class="carousel-item active h-100">
+                <img src="{{asset('assets')}}/images/slider/slide11.png" class="d-block w-100 h-100" style="object-fit: cover;">
+            </div>
             <div class="carousel-item active h-100">
                 <img src="{{asset('assets')}}/images/slider/slide1.jpg" class="d-block w-100 h-100" style="object-fit: cover;">
             </div>
