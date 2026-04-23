@@ -199,7 +199,7 @@ Hero Banner
 				<nav class="d-flex justify-content-center">
 					<div class="nav nav-tabs border-0" role="tablist">
 						<!-- <button class="nav-link active" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy" type="button">Rent</button> -->
-						<button class="nav-link" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent" type="button">SAle</button>
+						<button class="nav-link active" id="rent-tab" data-bs-toggle="tab" data-bs-target="#rent" type="button">SAle</button>
 					</div>
 				</nav>
 
